@@ -6,6 +6,7 @@ A singleplayer-verse-in-a-repo:
 
 * serverless: no servers (NAF/signaling) needed
 * don't exit immersive mode when navigation elsewhere 
+* teleporting between aframe apps & aframe verses 
 
 ## Example
 
@@ -17,7 +18,8 @@ A singleplayer-verse-in-a-repo:
 
     <!-- your aframe app goes here -->
 
-    <a-box href="somefriend.com/otherapp.html"></a-box>
+    <a-box href="somefriend.com/some_aframe_app.html"></a-box>
+    <a-box href="somefriend.com/supercustom_webxr_app.html"></a-box>
 
   <a-entity>
 </a-scene>
@@ -29,9 +31,10 @@ yourregister.json
   "schema":"aframe-verse/0.1",
   "destinations":[ 
     {"url":"./index.html"},
+    {"url":"somefriend.com/some_aframe_app.html"},         // allow in-app immersive navigation
     {
-     "url":"somefriend.com/otherapp.html",
-     "protocol":"https://", 
+     "url":"somefriend.com/supercustom_webxr_app.html",    // a trusted apps but which uses 
+     "protocol":"https://",                                // non-federated non-aframe scripts (exits immersive mode)
      "owntab": true                         
     }
   ], 
