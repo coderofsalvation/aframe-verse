@@ -25,6 +25,10 @@ A singleplayer-verse-in-a-repo:
     <a-box href="https://somefriend.com/supercustom_webxr_app.html"></a-box>
 
   <a-entity>
+
+  <!-- put 'global' entities here (UI, cursor or wearables e.g.)   -->
+  <!-- which persist across experiences                            -->
+
 </a-scene>
 ```
 
@@ -52,9 +56,9 @@ yourregister.json
 
 > your verse can now be accessed thru `https://yourusername.github.io/aframe-verse-myorganisation/apps`
 
-* put your aframe apps in apps/*
+* put your aframe apps in `apps/*`
 * add `href`-attributes to clickable items (like a-box)
-* allow the href-attributes by including them in `aframe-verse.json`
+* whitelist the href-attributes by including them in `aframe-verse.json`
 
 > Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future forks will automatically include your verse too.
 
