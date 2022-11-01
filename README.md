@@ -18,7 +18,7 @@ A singleplayer-verse-in-a-repo:
 <a-scene>
   <a-entity aframe-verse="register: /yourregister.json">
 
-    <!-- your aframe app goes here..and will be replaced upon navigation -->
+    <!-- everything nested under `aframe-verse`, will be replaced upon navigation -->
 
     <a-box href="./app2.html"></a-box>
     <a-box href="https://somefriend.com/some_aframe_app.html"></a-box>
