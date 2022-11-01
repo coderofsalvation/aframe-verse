@@ -49,7 +49,7 @@ yourregister.json
 }
 ```
 
-## Forking your own aframe-verse
+## Join us! Fork your own aframe-verse
 
 * click the fork-button on this repository
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
