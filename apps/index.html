@@ -13,10 +13,14 @@
         <a-text position="-1 1.7 -5" value="This is index.html" color="#aaaaaa"></a-text>
 
         <a-text position="1.0 1.87 -3.259" rotation="0 -45 0" value="click cylinder" color="#aaaaaa" scale="0.6 0.6 0.6"></a-text>
-        <a-cylinder class="hit" position="1.5 0.75 -3" radius="0.5" height="1.5" color="#00173d" href="./app2.html"></a-cylinder>
+        <a-cylinder position="1.5 0.75 -3" radius="0.5" height="1.5" color="#00173d" href="./app2.html"></a-cylinder>
 
         <a-plane position="0 0 -4" rotation="-90 0 0" width="9" height="9" color="#00AAFF"></a-plane>
 
+      </a-entity>
+      
+      <a-entity aframe-verse="register: ./../ui.json; fade:false">
+        <a-cylinder class="hit" position="1.5 0.75 1" radius="0.5" height="1.5" color="#FFFF00" href="./ui.html"></a-cylinder>
       </a-entity>
 
     </a-scene>

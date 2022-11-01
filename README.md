@@ -87,7 +87,22 @@ Out of the box, this monoverse-repo is good enough for seamlessly navigating bet
 A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
 
-## Connecting & nesting verses
+## Extend navigation 
+
+In the example, only mouse-clicks are supported (using mouse-cursor component).<br>
+By defining `hrefEvents`, you can trigger navigation for other events too:
+
+```
+<... aframe-verse="register: /yourverse.json; hrefEvents: click, mouseenter, collide, foobar">
+   <a-box href="./show.html"/>  
+</...>
+```
+
+> Profit! Now navigation is triggered to `show.html` whenever it is clicked, mousehovered or colliding with another object
+
+To navigate based on 'foobar', try something like `$('[aframe-verse] [href]').emit('foobar', {})`
+
+## Connecting and Securing verses
 
 ![](.img/yodawg.jpg)
 
@@ -101,6 +116,8 @@ verse.addEventListener('registerJSON', (json) => {
 })
 ```
 
+## Fading & nesting verses
+
 But you can also have multiple persisting verses at the same time.
 Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
 
@@ -109,7 +126,7 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
   ...
 </a-entity>
 
-<a-entity aframe-verse="register: menu.json; fade: false">   <!-- NOTE: turn off fade in/out -->
+<a-entity aframe-verse="register: menu.json; fade: false">   <!-- NOTE: turn off fades -->
   ...
 </a-entity>
 

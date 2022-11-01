@@ -6,7 +6,7 @@ AFRAME.registerComponent('href', {
   }, 
   init: function(){
     let href   = this.data.http || this.data.https || this.data
-    this.el.addEventListener("click", (e) => {
+    let clickHandler = (e) => {
       let averse = this.getVerse()
       if( averse.loading ) return
       let dest = averse.findDestination(href)
@@ -19,23 +19,31 @@ AFRAME.registerComponent('href', {
         .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
         .then( (dom ) => {
           averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
-          if( averse.data.fade ) $('[fadebox]').components.fadebox.out()
+        })
+        .catch( (e) => console.error(e) )
+        .finally( () => {
           averse.loading = false
+          if( averse.data.fade ) $('[fadebox]').components.fadebox.out()
         })
       }
       if( averse.data.fade ) $('[fadebox]').components.fadebox.in( navigate )
       else navigate()
-    })
-
-    this.el.setAttribute("class", (this.el.className+" "||"") + "hit") // make collidable
+    }
+   
+    setTimeout( () => {
+      let events = this.getVerse().data.hrefEvents
+      events.map( (e) => this.el.addEventListener(e, clickHandler ) )
+      this.el.setAttribute("class", (this.el.className?this.el.className+" ":"") + "hit") // make collidable
+    }, 200 )
   }
 })
 
 AFRAME.registerComponent('aframe-verse', {
 
   schema:{
-    register: {type:"string"}, 
-    fade: {type:"boolean", "default":true}
+    register:   {type:"string"}, 
+    fade:       {type:"boolean", "default":true}, 
+    hrefEvents: {type:"array", "default":["click"]}
   },
 
   registerJSON: function(url){
