@@ -46,10 +46,11 @@ yourregister.json
 
 This is basically the thought-experiment of aframe-verse-component:
 
-* describe a XYZ-verse using the lowest common denominator between authors (=a repository)
-* the authors trust DOM-sharing (a DOM-ring) between eachothers aframe-apps
-* the authors maintain a pool of (trusted) shared aframe components
-* consist of websites which use those components
+> describe a XYZ-verse using the lowest common denominator between authors (=a repository)
+
+* the **repository maintainer(s)** maintain a (monorepo) pool of aframe apps 
+* the **repository maintainer(s)** allows DOM-sharing (a DOM-ring) between eachothers aframe-apps
+* the **repository maintainer(s)** maintain a pool of (trusted) shared aframe components
 
 > Ideally, a verse-member needs to approve new (website-specific) components whenever a aframe website-author wants to add a new aframe site.
 
@@ -58,6 +59,6 @@ This is all up to the maintainers, just think of it as running a shared website.
 
 ## Scope
 
-This monoverse is perfectly enough for seamlessly navigating between **simple** aframe experiences (galleries, viewing scenes).
-It's basically the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
+This monoverse is perfect enough for seamlessly navigating between **simple** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
+A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
