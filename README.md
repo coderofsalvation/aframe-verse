@@ -69,10 +69,9 @@ The following describes the thought-experiment of an aframe-verse:
 
 > describe a XYZ-verse using the lowest common denominator between authors (=a git repository)
 
-* the **repository maintainer(s)** maintain a (monorepo) pool of aframe apps 
-* the **repository maintainer(s)** allows DOM-sharing (a DOM-ring) between eachothers aframe-apps
-* the **repository maintainer(s)** maintain a pool of (trusted) shared aframe components
-* the **repository maintainer(s)** agree on shared garbage collection 
+* the **gitrepo maintainer(s)** maintain a pool of trusted aframe apps (& components)
+* the **gitrepo maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
+* the **gitrepo maintainer(s)** agree on shared garbage collection 
 
 ![](.img/flow.gif)
 
