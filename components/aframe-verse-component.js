@@ -3,7 +3,7 @@ if( typeof $ == 'undefined' ) window.$ = (s) => document.querySelector(s)
 AFRAME.registerComponent('href', {
 
   init: function(){
-    let href   = this.data
+    let href   = this.data.http || this.data.https || this.data
     this.el.addEventListener("click", (e) => {
       if( this.loading ) return
       let averse = $('a-scene > a-entity[aframe-verse]').components["aframe-verse"]
@@ -11,7 +11,7 @@ AFRAME.registerComponent('href', {
       if( !dest ) throw `console.error: ${href} not in json register`
       this.loading = true
       $('[fadebox]').components.fadebox.in( () => {
-        if( dest.owntab ) return document.location.href = (dest.protocol||"") + dest.url
+        if( dest.owntab ) return document.location.href = dest.url
         fetch(dest.url)
         .then( (res ) => res.text() )
         .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )

@@ -20,8 +20,9 @@ A singleplayer-verse-in-a-repo:
 
     <!-- your aframe app goes here..and will be replaced upon navigation -->
 
-    <a-box href="somefriend.com/some_aframe_app.html"></a-box>
-    <a-box href="somefriend.com/supercustom_webxr_app.html"></a-box>
+    <a-box href="./app2.html"></a-box>
+    <a-box href="https://somefriend.com/some_aframe_app.html"></a-box>
+    <a-box href="https://somefriend.com/supercustom_webxr_app.html"></a-box>
 
   <a-entity>
 </a-scene>
@@ -36,7 +37,6 @@ yourregister.json
     {"url":"somefriend.com/some_aframe_app.html"},         // allow in-app immersive navigation
     {
      "url":"somefriend.com/supercustom_webxr_app.html",    // a trusted app but which uses 
-     "protocol":"https://",                                // non-federated non-aframe scripts (exits immersive mode)
      "owntab": true                         
     }
   ], 
@@ -46,9 +46,9 @@ yourregister.json
 
 ## a federated monoverse
 
-This is basically the thought-experiment of aframe-verse-component:
+The following describes the thought-experiment of aframe-verse-component:
 
-> describe a XYZ-verse using the lowest common denominator between authors (=a repository)
+> describe a XYZ-verse using the lowest common denominator between authors (=a git repository)
 
 * the **repository maintainer(s)** maintain a (monorepo) pool of aframe apps 
 * the **repository maintainer(s)** allows DOM-sharing (a DOM-ring) between eachothers aframe-apps
