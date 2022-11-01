@@ -35,7 +35,7 @@ yourregister.json
     {"url":"./index.html"},
     {"url":"somefriend.com/some_aframe_app.html"},         // allow in-app immersive navigation
     {
-     "url":"somefriend.com/supercustom_webxr_app.html",    // a trusted apps but which uses 
+     "url":"somefriend.com/supercustom_webxr_app.html",    // a trusted app but which uses 
      "protocol":"https://",                                // non-federated non-aframe scripts (exits immersive mode)
      "owntab": true                         
     }
