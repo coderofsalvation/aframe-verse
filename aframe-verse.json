@@ -3,8 +3,7 @@
   "destinations":[ 
     {"url":"./index.html"},
     {"url":"./app2.html"}, 
-    {"url":"fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
-     "protocol":"https://", 
+    {"url":"https://fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
      "author":"Fabien Benetou", 
      "owntab": true
     }
