@@ -44,6 +44,16 @@ yourregister.json
 }
 ```
 
+## Forking your own aframe-verse
+
+* Please fork this repository
+* rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
+* put aframe apps in apps/*
+* add `href`-attributes to clickable items (like a-box)
+* allow the href-attributes by including them in `aframe-verse.json`
+
+> Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future forks will automatically include your verse too.
+
 ## a federated monoverse
 
 The following describes the thought-experiment of aframe-verse-component:
