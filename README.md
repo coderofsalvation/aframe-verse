@@ -5,7 +5,7 @@
 A singleplayer-verse-in-a-repo:
 
 * serverless: no servers (NAF/signaling) needed
-* don't exit immersive mode when navigation elsewhere 
+* don't exit immersive mode when navigating to different aframe experience 
 * teleporting between aframe apps & aframe verses 
 
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
