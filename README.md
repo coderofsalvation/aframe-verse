@@ -1,6 +1,6 @@
 ## deadsimple immersive navigation
 
-![](demo.gif)
+![](.img/demo.gif)
 
 A singleplayer-verse-in-a-repo:
 
@@ -54,6 +54,8 @@ The following describes the thought-experiment of aframe-verse-component:
 * the **repository maintainer(s)** allows DOM-sharing (a DOM-ring) between eachothers aframe-apps
 * the **repository maintainer(s)** maintain a pool of (trusted) shared aframe components
 * the **repository maintainer(s)** agree on shared garbage collection 
+
+![](.img/flow.gif)
 
 > Ideally, the maintainers need to approve new (website-specific) scripts/components when a new app arrives thru merge requests.
 
