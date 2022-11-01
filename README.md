@@ -105,7 +105,8 @@ To navigate based on 'foobar', try something like `$('[aframe-verse] [href]').em
 
 ![](.img/yodawg.jpg)
 
-For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json` and secure its imports:
+For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json`, that's all!<br>
+Optionally, you can secure the import-behaviour further:
 
 ```
 let verse = $('a-scene > [aframe-verse]')
@@ -115,7 +116,7 @@ verse.addEventListener('registerJSON', (json) => {
 })
 ```
 
-## Fading & nesting verses
+## Fadetime & nesting verses
 
 But you can also have multiple persisting verses at the same time.
 Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
@@ -125,8 +126,10 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
   ...
 </a-entity>
 
-<a-entity aframe-verse="register: menu.json; fade: false">   <!-- NOTE: turn off fades -->
+<a-entity aframe-verse="register: menu.json; fade: 0">   <!-- NOTE: superfast fade in ms (0=off) -->
   ...
 </a-entity>
 
 ```
+
+> NOTE: for heavy scenes you can set `fade: 4000` (4seconds fade) e.g.
