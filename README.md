@@ -34,7 +34,7 @@ A singleplayer-verse-in-a-repo:
 </a-scene>
 ```
 
-yourregister.json
+aframe-verse.json
 ```
 {
   "schema":"aframe-verse/0.1",
@@ -54,18 +54,21 @@ yourregister.json
 
 ## Join us! Fork your own aframe-verse
 
-* click the fork-button on this repository
+* click the fork-button on this repository or [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
-* in github settings, enable github pages (use the main-branch)
+* [github] go to settings-tab > enable github pages (use the main-branch)
 
-> your verse can now be accessed thru `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+your verse can now be accessed thru either:
+* [github] `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+* [glitch] `https://aframe-verse-myorganisation.glitch.me/apps/` 
 
+Developing:
 * put your aframe apps in `apps/*`
 * add `href`-attributes to clickable items (like a-box)
 * whitelist the href-attributes by including them in `aframe-verse.json`
 * use absolute href/urls (or use `./index.html` to guide the enduser back to the origin verse)
 
-> Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future forks will automatically include your verse too.
+> Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
 
 ## a federated monoverse
 
