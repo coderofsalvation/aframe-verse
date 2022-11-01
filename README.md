@@ -4,6 +4,7 @@
 
 A singleplayer-verse-in-a-repo:
 
+* try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * serverless: no servers (NAF/signaling) needed
 * don't exit immersive mode when navigating to different aframe experience 
 * teleporting between aframe apps & aframe verses 
