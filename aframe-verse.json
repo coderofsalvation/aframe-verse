@@ -8,5 +8,7 @@
      "owntab": true
     }
   ], 
-  "verses":[]
+  "verses":[
+    "https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json"
+  ]
 }

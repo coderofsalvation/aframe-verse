@@ -39,16 +39,18 @@ yourregister.json
 {
   "schema":"aframe-verse/0.1",
   "destinations":[ 
-    {"url":"./index.html"},
-    {"url":"somefriend.com/some_aframe_app.html"},         // allow in-app immersive navigation
+    {"url":"./index.html"},                                      // change to absolute url for produciton 
+    {"url":"https://somefriend.com/some_aframe_app.html"},       // allow in-app immersive navigation
     {
-     "url":"somefriend.com/supercustom_webxr_app.html",    // a trusted app but which uses 
-     "owntab": true                                        // a threejs e.g. (opens in new tab)
+     "url":"https://somefriend.com/supercustom_webxr_app.html",  // a trusted app but which uses 
+     "owntab": true                                              // a threejs e.g. (opens in new tab)
     }
   ], 
   "verses":["https://otherbefriendedverse.com/register.json"]
 }
 ```
+
+> click here for an [production-example of a aframe-verse.json](https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json)
 
 ## Join us! Fork your own aframe-verse
 
@@ -61,6 +63,7 @@ yourregister.json
 * put your aframe apps in `apps/*`
 * add `href`-attributes to clickable items (like a-box)
 * whitelist the href-attributes by including them in `aframe-verse.json`
+* use absolute href/urls (or use `./index.html` to guide the enduser back to the origin verse)
 
 > Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future forks will automatically include your verse too.
 

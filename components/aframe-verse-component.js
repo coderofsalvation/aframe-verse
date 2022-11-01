@@ -41,6 +41,7 @@ AFRAME.registerComponent('href', {
 AFRAME.registerComponent('aframe-verse', {
 
   schema:{
+    debug:      {type:"boolean", "default":false}, 
     register:   {type:"string"}, 
     fade:       {type:"number", "default":1000}, 
     hrefEvents: {type:"array", "default":["click"]}
@@ -51,9 +52,19 @@ AFRAME.registerComponent('aframe-verse', {
     fetch(url)
     .then( (res) => res.json() )
     .then( (json) => {
+      json.destinations = json.destinations.map( (d) => {
+        if( url.substr(0, 2) != "./" && String(d.url).substr(0, 2) == './' ){ // make absolute url
+          let rooturl = url.split("/")
+          rooturl.pop()
+          d.url = rooturl.join("/") + "/apps/" + d.url.substr(2)
+        }
+        if( this.data.debug ) console.log("indexing "+d.url)
+        return d
+      })
       this.el.emit('registerJSON', json)
       this.destinations = this.destinations.concat( json.destinations)
       json.verses.map( (verse) => this.registerJSON(verse) )
+      console.dir(this.destinations)
     })
     .catch( (e) => console.error(e) )
     return this
@@ -61,7 +72,7 @@ AFRAME.registerComponent('aframe-verse', {
 
   findDestination: function(url){
     let destinations = this.el.closest('[aframe-verse]').components['aframe-verse'].destinations
-    return destinations.find( (d) => d.url == url ? d : false)
+    return destinations.find( (d) => String(d.url).replace(/(http|https):/, '') == url ? d : false)
   }, 
 
   initDestination: function(){
