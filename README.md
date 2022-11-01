@@ -123,9 +123,9 @@ verse.addEventListener('registerJSON', (json) => {
 })
 ```
 
-## Fadetime & nesting verses
+## Fadetime & multi-verses
 
-But you can also have multiple persisting verses at the same time.
+You can have multiple persisting verses at the same time.
 Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
 
 ```
