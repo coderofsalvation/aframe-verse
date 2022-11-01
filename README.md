@@ -46,9 +46,13 @@ yourregister.json
 
 ## Forking your own aframe-verse
 
-* Please fork this repository
+* click the fork-button on this repository
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
-* put aframe apps in apps/*
+* in github settings, enable github pages (use the main-branch)
+
+> your verse can now be accessed thru `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+
+* put your aframe apps in apps/*
 * add `href`-attributes to clickable items (like a-box)
 * allow the href-attributes by including them in `aframe-verse.json`
 
