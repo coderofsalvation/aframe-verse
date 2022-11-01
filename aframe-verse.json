@@ -1,0 +1,13 @@
+{
+  "schema":"aframe-verse/0.1",
+  "destinations":[ 
+    {"url":"./index.html"},
+    {"url":"./app2.html"}, 
+    {"url":"fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
+     "protocol":"https://", 
+     "author":"Fabien Benetou", 
+     "owntab": true
+    }
+  ], 
+  "verses":[]
+}
