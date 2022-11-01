@@ -8,6 +8,8 @@ A singleplayer-verse-in-a-repo:
 * don't exit immersive mode when navigation elsewhere 
 * teleporting between aframe apps & aframe verses 
 
+> Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
+
 ## Example
 
 ```
