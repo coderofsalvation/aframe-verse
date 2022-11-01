@@ -28,7 +28,7 @@ A singleplayer-verse-in-a-repo:
   <a-entity>
 
   <!-- put 'global' entities here (UI, cursor or wearables e.g.)   -->
-  <!-- which persist across experiences                            -->
+  <!-- to persist across navigation                                -->
 
 </a-scene>
 ```
@@ -87,3 +87,30 @@ Out of the box, this monoverse-repo is good enough for seamlessly navigating bet
 A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
 
+## Connecting & nesting verses
+
+![](.img/yodawg.jpg)
+
+For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json` and audit its import:
+
+```
+let verse = $('a-scene > [aframe-verse]')
+verse.addEventListener('registerJSON', (json) => {
+  // the current destinations are in `verse.destinations`
+  // the to be added destinations are in `json`
+})
+```
+
+But you can also have multiple persisting verses at the same time.
+Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
+
+```
+<a-entity aframe-verse="register: aframe-verse.json">
+  ...
+</a-entity>
+
+<a-entity aframe-verse="register: menu.json; fade: false">   <!-- NOTE: turn off fade in/out -->
+  ...
+</a-entity>
+
+```

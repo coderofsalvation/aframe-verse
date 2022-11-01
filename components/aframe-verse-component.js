@@ -6,22 +6,24 @@ AFRAME.registerComponent('href', {
     let href   = this.data.http || this.data.https || this.data
     this.el.addEventListener("click", (e) => {
       if( this.loading ) return
-      let averse = $('a-scene > a-entity[aframe-verse]').components["aframe-verse"]
+      let averse = this.el.closest('[aframe-verse]').components["aframe-verse"]
+      console.dir(averse)
       let dest = averse.findDestination(href)
       if( !dest ) throw `console.error: ${href} not in json register`
       this.loading = true
-      $('[fadebox]').components.fadebox.in( () => {
+      let navigate = () => {
         if( dest.owntab ) return document.location.href = dest.url
         fetch(dest.url)
         .then( (res ) => res.text() )
         .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
         .then( (dom ) => {
-          let app = dom.querySelector("a-scene > a-entity[aframe-verse]")
-          $('a-scene > a-entity[aframe-verse]').innerHTML = app.innerHTML;
-          $('[fadebox]').components.fadebox.out()
+          averse.el.innerHTML = dom.querySelector('a-scene > [aframe-verse]').innerHTML;
+          if( averse.data.fade ) $('[fadebox]').components.fadebox.out()
           this.loading = false
         })
-      })
+      }
+      if( averse.data.fade ) $('[fadebox]').components.fadebox.in( navigate )
+      else navigate()
     })
 
     this.el.setAttribute("class", (this.el.className+" "||"") + "hit") // make collidable
@@ -32,7 +34,7 @@ AFRAME.registerComponent('aframe-verse', {
 
   schema:{
     register: {type:"string"}, 
-    href: {type:"string"}
+    fade: {type:"boolean", "default":true}
   },
 
   registerJSON: function(url){
@@ -40,6 +42,7 @@ AFRAME.registerComponent('aframe-verse', {
     fetch(url)
     .then( (res) => res.json() )
     .then( (json) => {
+      this.el.emit('registerJSON', json)
       this.destinations = this.destinations.concat( json.destinations)
       json.verses.map( (verse) => this.registerJSON(verse) )
     })
@@ -48,7 +51,7 @@ AFRAME.registerComponent('aframe-verse', {
   }, 
 
   findDestination: function(url){
-    let destinations = $('a-scene > a-entity[aframe-verse]').components['aframe-verse'].destinations
+    let destinations = this.el.closest('[aframe-verse]').components['aframe-verse'].destinations
     return destinations.find( (d) => d.url == url ? d : false)
   }, 
 
