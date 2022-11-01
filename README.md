@@ -65,7 +65,7 @@ yourregister.json
 
 ## a federated monoverse
 
-The following describes the thought-experiment of aframe-verse-component:
+The following describes the thought-experiment of an aframe-verse:
 
 > describe a XYZ-verse using the lowest common denominator between authors (=a git repository)
 
@@ -96,8 +96,8 @@ For navigation, you can add external verses to the `.verses`-array in `aframe-ve
 ```
 let verse = $('a-scene > [aframe-verse]')
 verse.addEventListener('registerJSON', (json) => {
-  // the current destinations are in `verse.destinations`
-  // the to be added destinations are in `json`
+  // example: this skips non-immersive navigation links
+  json.destinations.map( (d) => !d.owntab ? verse.destinations.push(d) : null )
 })
 ```
 
