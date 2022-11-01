@@ -17,7 +17,7 @@ A singleplayer-verse-in-a-repo:
 <script src="aframe-verse-component"></script>
 
 <a-scene>
-  <a-entity aframe-verse="register: /yourregister.json">
+  <a-entity aframe-verse="register: /yourverse.json">
 
     <!-- everything nested under `aframe-verse`, will be replaced upon navigation -->
 
