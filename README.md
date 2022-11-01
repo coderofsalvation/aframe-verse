@@ -62,7 +62,7 @@ This is all up to the maintainers, just think of it as running a shared website.
 
 ## Scope
 
-This monoverse is good enough for seamlessly navigating between **simple** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
+Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
 A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
 
