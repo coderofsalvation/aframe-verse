@@ -16,7 +16,7 @@ A singleplayer-verse-in-a-repo:
 <a-scene>
   <a-entity aframe-verse="register: /yourregister.json">
 
-    <!-- your aframe app goes here -->
+    <!-- your aframe app goes here..and will be replaced upon navigation -->
 
     <a-box href="somefriend.com/some_aframe_app.html"></a-box>
     <a-box href="somefriend.com/supercustom_webxr_app.html"></a-box>
