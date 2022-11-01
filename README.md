@@ -1,4 +1,4 @@
-## deadsimple immersive navigation
+## AFRAME-verse, deadsimple immersive navigation
 
 ![](.img/demo.gif)
 
