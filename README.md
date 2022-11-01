@@ -89,7 +89,7 @@ For multiplayer, see the (way more complex) [NAF approach](https://github.com/ne
 
 ## Extend navigation 
 
-In the example, only mouse-clicks are supported (using mouse-cursor component).<br>
+In the example, only mouse-clicks are supported.<br>
 By defining `hrefEvents`, you can trigger navigation for other events too:
 
 ```

@@ -23,10 +23,10 @@ AFRAME.registerComponent('href', {
         .catch( (e) => console.error(e) )
         .finally( () => {
           averse.loading = false
-          if( averse.data.fade ) $('[fadebox]').components.fadebox.out()
+          if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.out()
         })
       }
-      if( averse.data.fade ) $('[fadebox]').components.fadebox.in( navigate )
+      if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.in( navigate )
       else navigate()
     }
    
@@ -42,7 +42,7 @@ AFRAME.registerComponent('aframe-verse', {
 
   schema:{
     register:   {type:"string"}, 
-    fade:       {type:"boolean", "default":true}, 
+    fade:       {type:"number", "default":1000}, 
     hrefEvents: {type:"array", "default":["click"]}
   },
 
@@ -69,8 +69,10 @@ AFRAME.registerComponent('aframe-verse', {
 
   initCamera: function(){
     let cam = $('[camera]')
-    cam.setAttribute("fadebox", "fadetime:1500;"+$('a-scene').getAttribute("background") )
-    cam.setAttribute("mouse-cursor", {})
+    if( !cam.getAttribute('fadebox') ){
+      cam.setAttribute("fadebox", `fadetime: ${this.data.fade}; `+$('a-scene').getAttribute("background") )
+      cam.setAttribute("mouse-cursor", {})
+    }
     return this
   }, 
 
