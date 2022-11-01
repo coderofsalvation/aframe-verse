@@ -57,7 +57,7 @@ The following describes the thought-experiment of aframe-verse-component:
 
 ![](.img/flow.gif)
 
-> Ideally, the maintainers need to approve new (website-specific) scripts/components when a new app arrives thru merge requests.
+> Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
 
 But..but..what about security?<br>
 This is all up to the maintainers, just think of it as running a shared website.
