@@ -43,7 +43,7 @@ yourregister.json
     {"url":"somefriend.com/some_aframe_app.html"},         // allow in-app immersive navigation
     {
      "url":"somefriend.com/supercustom_webxr_app.html",    // a trusted app but which uses 
-     "owntab": true                         
+     "owntab": true                                        // a threejs e.g. (opens in new tab)
     }
   ], 
   "verses":["https://otherbefriendedverse.com/register.json"]
