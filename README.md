@@ -53,8 +53,9 @@ This is basically the thought-experiment of aframe-verse-component:
 * the **repository maintainer(s)** maintain a (monorepo) pool of aframe apps 
 * the **repository maintainer(s)** allows DOM-sharing (a DOM-ring) between eachothers aframe-apps
 * the **repository maintainer(s)** maintain a pool of (trusted) shared aframe components
+* the **repository maintainer(s)** agree on shared garbage collection 
 
-> Ideally, a verse-member needs to approve new (website-specific) components whenever a aframe website-author wants to add a new aframe site.
+> Ideally, the maintainers need to approve new (website-specific) scripts/components when a new app arrives thru merge requests.
 
 But..but..what about security?<br>
 This is all up to the maintainers, just think of it as running a shared website.
@@ -64,3 +65,4 @@ This is all up to the maintainers, just think of it as running a shared website.
 This monoverse is good enough for seamlessly navigating between **simple** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
 A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
+
