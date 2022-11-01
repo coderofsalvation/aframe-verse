@@ -29,11 +29,10 @@ yourregister.json
   "schema":"aframe-verse/0.1",
   "destinations":[ 
     {"url":"./index.html"},
-    {"url":"./app2.html"}, 
-    {"url":"fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
+    {
+     "url":"somefriend.com/otherapp.html",
      "protocol":"https://", 
-     "author":"Fabien Benetou", 
-     "owntab": true
+     "owntab": true                         
     }
   ], 
   "verses":["https://otherbefriendedverse.com/register.json"]
