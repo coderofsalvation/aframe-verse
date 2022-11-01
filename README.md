@@ -91,7 +91,7 @@ For multiplayer, see the (way more complex) [NAF approach](https://github.com/ne
 
 ![](.img/yodawg.jpg)
 
-For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json` and audit its import:
+For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json` and secure its imports:
 
 ```
 let verse = $('a-scene > [aframe-verse]')

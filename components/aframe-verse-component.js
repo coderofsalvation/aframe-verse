@@ -1,25 +1,26 @@
 if( typeof $ == 'undefined' ) window.$ = (s) => document.querySelector(s)
 
 AFRAME.registerComponent('href', {
-
+  getVerse: function(){
+    return this.el.components["aframe-verse"] || this.el.closest('[aframe-verse]').components["aframe-verse"]
+  }, 
   init: function(){
     let href   = this.data.http || this.data.https || this.data
     this.el.addEventListener("click", (e) => {
-      if( this.loading ) return
-      let averse = this.el.closest('[aframe-verse]').components["aframe-verse"]
-      console.dir(averse)
+      let averse = this.getVerse()
+      if( averse.loading ) return
       let dest = averse.findDestination(href)
       if( !dest ) throw `console.error: ${href} not in json register`
-      this.loading = true
+      averse.loading = true
       let navigate = () => {
         if( dest.owntab ) return document.location.href = dest.url
         fetch(dest.url)
         .then( (res ) => res.text() )
         .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
         .then( (dom ) => {
-          averse.el.innerHTML = dom.querySelector('a-scene > [aframe-verse]').innerHTML;
+          averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
           if( averse.data.fade ) $('[fadebox]').components.fadebox.out()
-          this.loading = false
+          averse.loading = false
         })
       }
       if( averse.data.fade ) $('[fadebox]').components.fadebox.in( navigate )
