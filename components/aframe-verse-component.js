@@ -9,7 +9,10 @@ AFRAME.registerComponent('href', {
     let handler  = (e) => {
       let averse = this.getVerse()
       if( averse.loading ) return
-      let dest = averse.findDestination(href)
+
+      let dest = {url:"./index.html"}         // default: return to home / origin verse
+      dest = href == '/' ? {url:'/'} : averse.findDestination(href)
+      console.dir(dest)
       if( !dest ) throw `console.error: ${href} not in json register`
       averse.loading = true
 
@@ -34,21 +37,18 @@ AFRAME.registerComponent('href', {
     }, 200 )
   }, 
 
-  setBaseHref: function(url){
-    let base = url.split("/")
-    base.pop()
-    console.dir(base)
-    base = base.join("/")
-    if( base != '.' ) $('base').setAttribute("href", base+"/")
-  }, 
-
   loadURL: function(averse, dest){
     if( dest.newtab ) return document.location.href = dest.url
+    let gohome = ( dest.url == '/' )
+    if( gohome ){
+      dest.url = "./index.html"
+      averse.setBaseHref( document.location.origin+document.location.pathname )
+    }
     fetch(dest.url)
     .then( (res ) => res.text() )
     .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
     .then( (dom ) => {
-      this.setBaseHref(dest.url)
+      if( !gohome ) averse.setBaseHref( dest.url )
       averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
     })
     .catch( (e) => console.error(e) )
@@ -96,15 +96,23 @@ AFRAME.registerComponent('aframe-verse', {
     let destinations = this.el.closest('[aframe-verse]').components['aframe-verse'].destinations
     return destinations.find( (d) => {
       let result  = false
-      console.dir({url:url, durl:d.url})
       if( String(d.url).replace(/(http|https):/, '') == url     ) result = d
       if( String(d.url).replace(/(http|https):/, '') == url_rel ) result = d
       return result
     })
   }, 
 
-  initDestination: function(){
+  setBaseHref: function(url, absolute){
+    let base = url.split("/")
+    if( !absolute ){
+      if( !this.el.isEqualNode( $('[aframe-verse]') ) ) 
+        return // only first aframe-verse can set base href
+      base.pop()
+      base = base.join("/") +"/"
+    } else base = url
+    if( base != '.' ) $('base').setAttribute("href", base)
   }, 
+
 
   initCamera: function(){
     let cam = $('[camera]')

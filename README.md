@@ -23,7 +23,8 @@ A HTML-first-single-player-verse:
 
     <!-- everything nested under `aframe-verse`, will be replaced upon navigation  -->
 
-    <a-box href="./app2.html"></a-box>  <!-- change to absolute urls on production -->
+    <a-box href="/"></a-box>            <!-- goes home (index.html) / the verse of entry --> 
+    <a-box href="./app2.html"></a-box>  
     <a-box href="https://somefriend.com/some_aframe_app.html"></a-box>
     <a-box href="https://somefriend.com/supercustom_webxr_app.html"></a-box>
 
