@@ -58,7 +58,7 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
-## Join us! selfhost & connect your verse (for free)
+## Join us! publish, selfhost & connect your verse (for free)
 
 3 ways of hosting:
 
