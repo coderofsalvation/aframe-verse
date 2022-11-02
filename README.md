@@ -8,6 +8,7 @@ A singleplayer-verse-in-a-repo:
 * ❤️ serverless: no servers (NAF/signaling) needed
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ easily teleport between aframe apps & aframe verses 
+* ❤️ HTML-first: no javascript needed to show a cube, even runs on wordpress
 
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
 
