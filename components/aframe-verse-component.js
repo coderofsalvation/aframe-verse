@@ -34,12 +34,21 @@ AFRAME.registerComponent('href', {
     }, 200 )
   }, 
 
+  setBaseHref: function(url){
+    let base = url.split("/")
+    base.pop()
+    console.dir(base)
+    base = base.join("/")
+    if( base != '.' ) $('base').setAttribute("href", base+"/")
+  }, 
+
   loadURL: function(averse, dest){
     if( dest.newtab ) return document.location.href = dest.url
     fetch(dest.url)
     .then( (res ) => res.text() )
     .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
     .then( (dom ) => {
+      this.setBaseHref(dest.url)
       averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
     })
     .catch( (e) => console.error(e) )
@@ -83,8 +92,15 @@ AFRAME.registerComponent('aframe-verse', {
   }, 
 
   findDestination: function(url){
+    let url_rel = $('base').getAttribute("href") + url
     let destinations = this.el.closest('[aframe-verse]').components['aframe-verse'].destinations
-    return destinations.find( (d) => String(d.url).replace(/(http|https):/, '') == url ? d : false)
+    return destinations.find( (d) => {
+      let result  = false
+      console.dir({url:url, durl:d.url})
+      if( String(d.url).replace(/(http|https):/, '') == url     ) result = d
+      if( String(d.url).replace(/(http|https):/, '') == url_rel ) result = d
+      return result
+    })
   }, 
 
   initDestination: function(){
@@ -119,7 +135,7 @@ AFRAME.registerComponent('fadebox', {
   },
   init: function(){
     let fb = this.fb = document.createElement("a-box")
-    fb.setAttribute("scale", "1.5 1.5 1.5")
+    fb.setAttribute("scale", "0.5 0.5 0.5")
     fb.setAttribute("material", `color: ${this.data.color}; transparent: true; side: back; shader: flat`)
     this.el.appendChild(fb)
     this.out()

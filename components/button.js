@@ -8,12 +8,15 @@ AFRAME.registerComponent('button', {
         },
         toggable: {
             default: false
+        }, 
+        color:{
+            default: '#3a50c5'
         }
     },
     init: function() {
         var el = this.el;
         var labelEl = this.labelEl = document.createElement('a-entity');
-        this.color = '#3a50c5';
+        this.color = this.data.color 
         el.setAttribute('geometry', {
             primitive: 'box',
             width: this.data.width,
