@@ -58,13 +58,21 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
-* click the fork-button on this repository or [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
-* rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
-* [github] go to settings-tab > enable github pages (use the main-branch)
+3 ways of hosting:
 
-your verse can now be accessed thru either:
-* [github] `https://yourusername.github.io/aframe-verse-myorganisation/apps`
-* [glitch] `https://aframe-verse-myorganisation.glitch.me/apps/` 
+**github**:
+* click the fork-button on this repository
+* rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
+* go to settings-tab > enable github pages (use the main-branch)
+* profit! your verse can now be accessed thru `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+
+**glitch**
+* [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
+* rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
+* your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
+ 
+**selfhosting**
+* [download zip](git@github.com:coderofsalvation/aframe-verse.git) and unpack it in your apache/worpress dir e.g.
 
 Developing:
 * put your aframe apps in `apps/*`
