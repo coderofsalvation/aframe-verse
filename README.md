@@ -9,10 +9,11 @@ A HTML-first single-player verse-in-a-repo:
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ easily teleport between aframe apps & aframe verses 
 * ❤️ HTML-first: even runs on wordpress, no ninja javascript-skills needed
+* ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
 
-## Example
+## Creating your verse 
 
 ```
 <script src="aframe-verse-component"></script>
@@ -71,11 +72,9 @@ Developing:
 
 > Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
 
-## a federated monoverse
+## A federated verse
 
-The following describes the thought-experiment of an aframe-verse:
-
-> describe a XYZ-verse using the lowest common denominator between authors (=a git repository)
+> aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a git repository)
 
 * the **gitrepo maintainer(s)** maintain a pool of trusted aframe apps (& components)
 * the **gitrepo maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
@@ -85,8 +84,8 @@ The following describes the thought-experiment of an aframe-verse:
 
 > Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
 
-But..but..what about security?<br>
-This is all up to the maintainers, just think of it as running a shared website.
+But..but..what about privacy & security?<br>
+This is all up to the maintainers of a verse, just think of it as running a shared website.
 
 ## Scope
 
