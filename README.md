@@ -56,6 +56,8 @@ aframe-verse.json
 
 ## Join us! Fork your own aframe-verse
 
+![](.img/flow.jpg)
+
 * click the fork-button on this repository or [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * [github] go to settings-tab > enable github pages (use the main-branch)
@@ -72,20 +74,20 @@ Developing:
 
 > Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
 
-## A federated verse
+## A federated HTML-first verse
 
-> aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a git repository)
+> aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a webdirectory)
 
-* the **gitrepo maintainer(s)** maintain a pool of trusted aframe apps (& components)
-* the **gitrepo maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
-* the **gitrepo maintainer(s)** agree on shared garbage collection 
-
-![](.img/flow.gif)
+* the **maintainer(s)** maintain a pool of trusted aframe apps (& components)
+* the **maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
+* the **maintainer(s)** agree on shared garbage collection 
 
 > Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
 
 But..but..what about privacy & security?<br>
 This is all up to the maintainers of a verse, just think of it as running a shared website.
+
+> Every verse can decide on its own, whether to trust an external verse. This is enough for most cases. Security enthousiast can go crazy (introduce a 'handshake' in the `navigate`-component above, by checking eachother's `aframe-verse.json` for certain agreed property-values e.g.).
 
 ## Scope
 
