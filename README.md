@@ -2,7 +2,7 @@
 
 ![](.img/demo.gif)
 
-A HTML-first single-player verse-in-a-repo:
+A HTML-first-single-player-verse:
 
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * ❤️ serverless: no servers (NAF/signaling) needed
