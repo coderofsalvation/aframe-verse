@@ -6,8 +6,8 @@ A HTML-first single-player verse-in-a-repo:
 
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * ❤️ serverless: no servers (NAF/signaling) needed
-* ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ easily teleport between aframe apps & aframe verses 
+* ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ HTML-first: even runs on wordpress, no ninja javascript-skills needed
 * ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
@@ -85,15 +85,8 @@ Developing:
 > Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
 
 But..but..what about privacy & security?<br>
-This is all up to the maintainers of a verse, just think of it as running a shared website.
-
-> Every verse can decide on its own, whether to trust an external verse. This is enough for most cases. Security enthousiast can go crazy (introduce a 'handshake' in the `navigate`-component above, by checking eachother's `aframe-verse.json` for certain agreed property-values e.g.).
-
-## Scope
-
-Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
-A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
-For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
+This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.
+For more info [read this](https://github.com/coderofsalvation/aframe-verse/issues/1)
 
 ## Extending navigation interactions
 
@@ -165,3 +158,12 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
 ```
 
 > NOTE: for heavy scenes you can set `fade: 4000` (4seconds fade) e.g.
+
+## Scope
+
+Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
+A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
+Therefore, the following is out of scope, but can still be used to progressively enhance an `aframe-verse`:
+
+* multiplayer: see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
+* hardened security/privacy: introduce activitypub-layer, p2p webrtc like yjs
