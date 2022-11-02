@@ -1,0 +1,19 @@
+image: mhart/alpine-node:10.16.3
+
+variables:
+  LC_ALL: C.UTF-8
+
+#before_script:
+#  - apk add rsync imagemagick ffmpeg bash file findutils perl sed unzip
+
+pages:
+  stage: deploy
+  script:
+  - mkdir public
+  - cp -r apps components *.json public/.
+  - find public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

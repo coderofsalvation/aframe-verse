@@ -54,19 +54,21 @@ aframe-verse.json
 
 > click here for an [production-example of a aframe-verse.json](https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json)
 
-## Join us! Fork your own aframe-verse
+# How it works
 
 ![](.img/flow.jpg)
 
+## Join us! selfhost & connect your verse (for free)
+
 3 ways of hosting:
 
-**github**:
+**GITHUB (free)**:
 * click the fork-button on this repository
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * go to settings-tab > enable github pages (use the main-branch)
 * profit! your verse can now be accessed thru `https://yourusername.github.io/aframe-verse-myorganisation/apps`
 
-**glitch**
+**glitch (free)**
 * [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
 * rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
