@@ -2,13 +2,13 @@
 
 ![](.img/demo.gif)
 
-A singleplayer-verse-in-a-repo:
+A HTML-first single-player verse-in-a-repo:
 
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * ❤️ serverless: no servers (NAF/signaling) needed
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ easily teleport between aframe apps & aframe verses 
-* ❤️ HTML-first: no javascript needed to show a cube, even runs on wordpress
+* ❤️ HTML-first: even runs on wordpress, no ninja javascript-skills needed
 
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
 
