@@ -8,7 +8,7 @@ A HTML-first single-player verse-in-a-repo:
 * ❤️ serverless: no servers (NAF/signaling) needed
 * ❤️ easily teleport between aframe apps & aframe verses 
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
-* ❤️ HTML-first: even runs on wordpress, no ninja javascript-skills needed
+* ❤️ HTML-first: even runs from wordpress, no ninja javascript-skills needed
 * ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
@@ -62,7 +62,7 @@ aframe-verse.json
 
 3 ways of hosting:
 
-**free: GITHUB / GITLAB**:
+**GITHUB / GITLAB (free)**:
 * click the fork-button on [github](https://github.com/coderofsalvation/aframe-verse) or [gitlab](https://gitlab.com/coderofsalvation/aframe-verse)
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * github: go to settings-tab > enable github pages (use the main-branch)
@@ -76,7 +76,7 @@ aframe-verse.json
 * your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
  
 **SELFHOSTING**
-* [download zip](git@github.com:coderofsalvation/aframe-verse.git) and unpack it in your apache/worpress dir e.g.
+* [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
 
 Developing:
 * put your aframe apps in `apps/*`
