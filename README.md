@@ -43,7 +43,7 @@ aframe-verse.json
     {"url":"https://somefriend.com/some_aframe_app.html"},       // allow in-app immersive navigation
     {
      "url":"https://somefriend.com/supercustom_webxr_app.html",  // a trusted app but which uses 
-     "owntab": true                                              // a threejs e.g. (opens in new tab)
+     "newtab": true                                              // a threejs e.g. (opens in new tab)
     }
   ], 
   "verses":["https://otherbefriendedverse.com/register.json"]
@@ -93,9 +93,9 @@ Out of the box, this monoverse-repo is good enough for seamlessly navigating bet
 A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 For multiplayer, see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
 
-## Extend navigation 
+## Extending navigation interactions
 
-In the example, only mouse-clicks are supported.<br>
+In the example, only touch/mouse-events are supported.<br>
 By defining `hrefEvents`, you can trigger navigation for other events too:
 
 ```
@@ -106,22 +106,45 @@ By defining `hrefEvents`, you can trigger navigation for other events too:
 
 > Profit! Now navigation is triggered to `show.html` whenever it is clicked, mousehovered or colliding with another object
 
-To navigate based on 'foobar', try something like `$('[aframe-verse] [href]').emit('foobar', {})`
+calling `$('[aframe-verse] [href]').emit('foobar', {})` would trigger navigation too
+
+## Customizing navigation
+
+You can hook into navigation-events by creating a custom component:
+
+```
+// use like: <a-entity aframe-verse="..." navigate></a-entity>
+
+AFRAME.registerComponent('navigate', {
+  init: function(){
+    console.log("initing navigation")
+    this.el.addEventListener('beforeNavigate', this.beforeNavigate )
+    this.el.addEventListener('navigate', this.navigate )
+    this.el.addEventListener('registerJSON', this.registerJSON )
+  }, 
+  beforeNavigate(e){
+    console.log("about to navigate to: "+e.detail.destination.url)
+    // e.detail.destination = false           // uncomment to cancel navigation
+  }, 
+  navigate(e){
+    console.log("navigating to: "+e.detail.destination.url)
+  }, 
+  registerJSON(e){
+    let json = e.detail.json
+    // example: skip non-immersive navigation links
+    json.destinations = json.destinations.filter( (d) => d.newtab ? null : d )
+    // example: launch external verses in a new tab (so its components get loaded too)
+    json.destinations.map( (d) => d.url.match(/index\.html$/) ? d.newtab = true : null )
+  }
+})
+```
 
 ## Connecting and Securing verses
 
 ![](.img/yodawg.jpg)
 
 For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json`, that's all!<br>
-Optionally, you can secure the import-behaviour further:
-
-```
-let verse = $('a-scene > [aframe-verse]')
-verse.addEventListener('registerJSON', (json) => {
-  // example: this skips non-immersive navigation links
-  json.destinations.map( (d) => !d.owntab ? verse.destinations.push(d) : null )
-})
-```
+Optionally, you can secure the import-behaviour further using the `registerJSON`-event as shown above
 
 ## Fadetime & multi-verses
 

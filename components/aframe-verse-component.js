@@ -6,36 +6,49 @@ AFRAME.registerComponent('href', {
   }, 
   init: function(){
     let href   = this.data.http || this.data.https || this.data
-    let clickHandler = (e) => {
+    let handler  = (e) => {
       let averse = this.getVerse()
       if( averse.loading ) return
       let dest = averse.findDestination(href)
       if( !dest ) throw `console.error: ${href} not in json register`
       averse.loading = true
-      let navigate = () => {
-        if( dest.owntab ) return document.location.href = dest.url
-        fetch(dest.url)
-        .then( (res ) => res.text() )
-        .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
-        .then( (dom ) => {
-          averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
-        })
-        .catch( (e) => console.error(e) )
-        .finally( () => {
-          averse.loading = false
-          if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.out()
-        })
+
+      let customHandler = (e) => {
+        let opts = {el:averse,  destination:dest }
+        averse.el.emit(e,  opts)     
+        return opts
       }
+      let navigate = () => {
+        if( ! customHandler('navigate').destination ) return // canceled
+        this.loadURL(averse, dest)
+      }
+
+      if( ! customHandler('beforeNavigate').destination ) return // canceled
       if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.in( navigate )
       else navigate()
     }
-   
     setTimeout( () => {
       let events = this.getVerse().data.hrefEvents
-      events.map( (e) => this.el.addEventListener(e, clickHandler ) )
+      events.map( (e) => this.el.addEventListener(e, handler ) )
       this.el.setAttribute("class", (this.el.className?this.el.className+" ":"") + "hit") // make collidable
     }, 200 )
-  }
+  }, 
+
+  loadURL: function(averse, dest){
+    if( dest.newtab ) return document.location.href = dest.url
+    fetch(dest.url)
+    .then( (res ) => res.text() )
+    .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
+    .then( (dom ) => {
+      averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
+    })
+    .catch( (e) => console.error(e) )
+    .finally( () => {
+      averse.loading = false
+      if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.out()
+    })
+  } 
+
 })
 
 AFRAME.registerComponent('aframe-verse', {
@@ -61,10 +74,9 @@ AFRAME.registerComponent('aframe-verse', {
         if( this.data.debug ) console.log("indexing "+d.url)
         return d
       })
-      this.el.emit('registerJSON', json)
+      this.el.emit('registerJSON', {json} )
       this.destinations = this.destinations.concat( json.destinations)
       json.verses.map( (verse) => this.registerJSON(verse) )
-      console.dir(this.destinations)
     })
     .catch( (e) => console.error(e) )
     return this
@@ -107,7 +119,7 @@ AFRAME.registerComponent('fadebox', {
   },
   init: function(){
     let fb = this.fb = document.createElement("a-box")
-    fb.setAttribute("scale", "2 2 2")
+    fb.setAttribute("scale", "1.5 1.5 1.5")
     fb.setAttribute("material", `color: ${this.data.color}; transparent: true; side: back; shader: flat`)
     this.el.appendChild(fb)
     this.out()
