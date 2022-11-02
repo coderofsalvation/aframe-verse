@@ -62,18 +62,20 @@ aframe-verse.json
 
 3 ways of hosting:
 
-**GITHUB (free)**:
-* click the fork-button on this repository
+**free: GITHUB / GITLAB**:
+* click the fork-button on [github](https://github.com/coderofsalvation/aframe-verse) or [gitlab](https://gitlab.com/coderofsalvation/aframe-verse)
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
-* go to settings-tab > enable github pages (use the main-branch)
-* profit! your verse can now be accessed thru `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+* github: go to settings-tab > enable github pages (use the main-branch)
+* profit! your verse can now be accessed thru 
+  * github: `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+  * gitlab: `https://yourusername.gitlab.io/aframe-verse-myorganisation/apps`
 
-**glitch (free)**
+**GLITCH (free)**
 * [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
 * rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
  
-**selfhosting**
+**SELFHOSTING**
 * [download zip](git@github.com:coderofsalvation/aframe-verse.git) and unpack it in your apache/worpress dir e.g.
 
 Developing:
