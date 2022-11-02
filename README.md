@@ -21,9 +21,9 @@ A HTML-first-single-player-verse:
 <a-scene>
   <a-entity aframe-verse="register: /aframe-verse.json">
 
-    <!-- everything nested under `aframe-verse`, will be replaced upon navigation -->
+    <!-- everything nested under `aframe-verse`, will be replaced upon navigation  -->
 
-    <a-box href="./app2.html"></a-box>
+    <a-box href="./app2.html"></a-box>  <!-- change to absolute urls on production -->
     <a-box href="https://somefriend.com/some_aframe_app.html"></a-box>
     <a-box href="https://somefriend.com/supercustom_webxr_app.html"></a-box>
 
