@@ -161,45 +161,7 @@ Therefore, the following is out of scope, but can still be used to progressively
 </details>
 
 <details>
-  <summary><h1>Publish,  selfhost & connect your verse (for free)</h2></summary>
-  <br>
-
-3 ways of hosting:
-
-<details>
-  <summary><h3>GITHUB / GITLAB</h2></summary>
-  <br>
-
-* click the fork-button on [github](https://github.com/coderofsalvation/aframe-verse) or [gitlab](https://gitlab.com/coderofsalvation/aframe-verse)
-* rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
-* github: go to settings-tab > enable github pages (use the main-branch)
-* profit! your verse can now be accessed thru 
-  * github: `https://yourusername.github.io/aframe-verse-myorganisation/apps`
-  * gitlab: `https://yourusername.gitlab.io/aframe-verse-myorganisation/apps`
-</details>
-
-<details>
-  <summary><h3>GLITCH</h2></summary>
-  <br>
-
-* [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
-* rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
-* your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
-</details>
- 
-<details>
-  <summary><h3>SELFHOSTING (redbean/wordpress/apache e.g.)</h2></summary>
-  <br>
-
-* [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
-</details>
-
-> Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
-
-</details>
-
-<details>
-  <summary><h2>Customizing (with code)</h2></summary>
+  <summary><h1>Customizing (with code)</h1></summary>
   <br>
 
   <details>
@@ -286,5 +248,44 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
 
 > NOTE: for heavy scenes you can set `fade: 4000` (4seconds fade) e.g.
   </details>
+</details>
+
+
+<details>
+  <summary><h1>Publish,  selfhost & connect your verse (for free)</h2></summary>
+  <br>
+
+3 ways of hosting:
+
+<details>
+  <summary><h3>GITHUB / GITLAB</h2></summary>
+  <br>
+
+* click the fork-button on [github](https://github.com/coderofsalvation/aframe-verse) or [gitlab](https://gitlab.com/coderofsalvation/aframe-verse)
+* rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
+* github: go to settings-tab > enable github pages (use the main-branch)
+* profit! your verse can now be accessed thru 
+  * github: `https://yourusername.github.io/aframe-verse-myorganisation/apps`
+  * gitlab: `https://yourusername.gitlab.io/aframe-verse-myorganisation/apps`
+</details>
+
+<details>
+  <summary><h3>GLITCH</h2></summary>
+  <br>
+
+* [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
+* rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
+* your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
+</details>
+ 
+<details>
+  <summary><h3>SELFHOSTING (redbean/wordpress/apache e.g.)</h2></summary>
+  <br>
+
+* [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
+</details>
+
+> Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
+
 </details>
 
