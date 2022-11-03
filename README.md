@@ -144,18 +144,12 @@ Therefore, the following is out of scope, but can still be used to progressively
   <br>
 
   Typically these are included in the cluster-client [index.html](apps/index.html).<br>
-  As an exception to the rule,  you can load remote (trusted) components, by modifying [aframe-verse.json](aframe-version):
+  
+  #### What if other apps require certain components/scripts?
 
-```json
-{
-  destinations:[
-    {url:"https://trusteddomain.com/experience.html", scripts:[...]}
-  ]
-}
-```
+  As an exception to the rule, you can load remote (trusted) components/scripts, which is demonstrated by [aframe-verse-component-scripts](https://github.com/coderofsalvation/aframe-verse-component-scripts).
 
-And then write a custom `navigation`-component (see Customizing-chapter) to load `scripts` (or script-tags nested under `aframe-verse`-attribute).<br>
-A future version of `aframe-verse.json` will do the latter.
+
 </details>
 
 
@@ -187,7 +181,7 @@ calling `$('[aframe-verse] [href]').emit('foobar', {})` would trigger navigation
     <summary><h4>Customizing navigation further</h2></summary>
     <br>
 
-You can hook into navigation-events by creating a custom component:
+You can control navigation-events by creating a custom component:
 
 ```
 // use like: <a-entity aframe-verse="..." navigate></a-entity>
@@ -195,27 +189,41 @@ You can hook into navigation-events by creating a custom component:
 AFRAME.registerComponent('navigate', {
   init: function(){
     console.log("initing navigation")
-    this.el.addEventListener('beforeNavigate', this.beforeNavigate )
-    this.el.addEventListener('navigate', this.navigate )
-    this.el.addEventListener('registerJSON', this.registerJSON )
+    this.el.addEventListener('beforeNavigate', (e) => this.beforeNavigate(e) )
+    this.el.addEventListener('navigate',       (e) => this.navigate(e) )
+    this.el.addEventListener('loadHTML',       (e) => this.loadHTML(e) )
+    this.el.addEventListener('registerJSON',   (e) => this.registerJSON(e) )
   }, 
   beforeNavigate(e){
+    // let promise = e.detail.promise()   
     console.log("about to navigate to: "+e.detail.destination.url)
-    // e.detail.destination = false           // uncomment to cancel navigation
+    // promise.resolve()
+    // promise.reject("not going to happen")
   }, 
   navigate(e){
-    // e.detail.destination = false           // uncomment to cancel navigation 
+    // let promise = e.detail.promise()   
     console.log("navigating to: "+e.detail.destination.url)
+    // promise.resolve()
+    // promise.reject("not going to happen")
   }, 
+  loadHTML(e){
+    let newdom = e.detail.dom.querySelector("[aframe-verse]")
+    // let promise = e.detail.promise()   
+		console.log("loading html")
+    // promise.resolve()
+    // promise.reject("not going to happen")
+  },
   registerJSON(e){
     let json = e.detail.json
-    // example: skip non-immersive navigation links
-    json.destinations = json.destinations.filter( (d) => d.newtab ? null : d )
-    // example: launch external verses in a new tab (so its components get loaded too)
-    json.destinations.map( (d) => d.url.match(/index\.html$/) ? d.newtab = true : null )
+    /* example: skip non-immersive navigation links */
+    // json.destinations = json.destinations.filter( (d) => d.newtab ? null : d )
+    /* example: launch external verses in a new tab (so its components get loaded too) */
+    // json.destinations.map( (d) => d.url.match(/index\.html$/) ? d.newtab = true : null )
   }
 })
 ```
+
+> This is the place to show a consent popup e.g. (most trusted experiences can do fine without that in the beginning).
   </details>
 
   <details>

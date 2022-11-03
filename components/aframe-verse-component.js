@@ -4,6 +4,16 @@ AFRAME.registerComponent('href', {
   getVerse: function(){
     return this.el.components["aframe-verse"] || this.el.closest('[aframe-verse]').components["aframe-verse"]
   }, 
+  emitPromise: function(e, opts){ // emitting promises instead of data allows more control for listeners
+    return new Promise( (resolve, reject) => {
+      opts.promise = () => {
+        opts.promise.halted = true
+        return { resolve, reject }
+      }
+      this.getVerse().el.emit(e, opts)     
+      if( !opts.promise.halted ) resolve()
+    })
+  }, 
   init: function(){
     let href   = this.data.http || this.data.https || this.data
     let handler  = (e) => {
@@ -12,23 +22,21 @@ AFRAME.registerComponent('href', {
 
       let dest = {url:"./index.html"}         // default: return to home / origin verse
       dest = href == '/' ? {url:'/'} : averse.findDestination(href)
-      console.dir(dest)
       if( !dest ) throw `console.error: ${href} not in json register`
+      let ctx = {el:averse,  destination:dest }
       averse.loading = true
 
-      let customHandler = (e) => {
-        let opts = {el:averse,  destination:dest }
-        averse.el.emit(e,  opts)     
-        return opts
-      }
       let navigate = () => {
-        if( ! customHandler('navigate').destination ) return // canceled
-        this.loadURL(averse, dest)
+        this.emitPromise('navigate',ctx)
+            .then(  (e) => this.loadURL(averse, dest) )
+            .catch( console.warn ) 
       }
 
-      if( ! customHandler('beforeNavigate').destination ) return // canceled
-      if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.in( navigate )
-      else navigate()
+      this.emitPromise('beforeNavigate', ctx)
+          .then( () => {
+            if( averse.data.fade != 0 ) $('[fadebox]').components.fadebox.in( navigate )
+            else navigate()
+          })
     }
     setTimeout( () => {
       let events = this.getVerse().data.hrefEvents
@@ -49,7 +57,9 @@ AFRAME.registerComponent('href', {
     .then( (html) => new window.DOMParser().parseFromString(html, "text/html") )
     .then( (dom ) => {
       if( !gohome ) averse.setBaseHref( dest.url )
-      averse.el.innerHTML = dom.querySelector('[aframe-verse]:nth-child(1)').innerHTML;
+      this.emitPromise('loadHTML',{destination:dest, dom, gohome})
+          .then( () =>  averse.el.innerHTML = dom.querySelector('[aframe-verse]').innerHTML )
+          .catch( console.warn ) 
     })
     .catch( (e) => console.error(e) )
     .finally( () => {

@@ -3,6 +3,7 @@
   "destinations":[ 
     {"url":"./index.html"},
     {"url":"./app2.html"}, 
+    {"url":"https://coderofsalvation.github.io/aframe-verse-leondustar/apps/index.html", "scripts":true}, 
     {"url":"https://fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
      "author":"Fabien Benetou", 
      "owntab": true
