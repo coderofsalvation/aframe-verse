@@ -74,7 +74,7 @@ A visitor in an **aframe-verse** just teleports to other destinations and cluste
   <br>
 
   The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
-  Instead, a visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+  Instead, a visitor in the **aframe-verse** just teleports to other destinations and clusters.<br>
   When the visitor surfs to a cluster-client ([index.html](apps/index.html)), it basically loads all components, which other linked experiences use.<br>
   This is a security-limitation and a performance-feature, because this: 
   
@@ -85,11 +85,8 @@ A visitor in an **aframe-verse** just teleports to other destinations and cluste
       * shared components
       * shared global objects: wearables, UI, AR/VR controller-support e.g.
   
-  Exceptions to this rule can be agreed upon by the developer(s) of a cluster-client ([index.html](apps/index.html)).<br>
-  By allowing on-the-fly components by certain developers or CDN's:
-  
-  `{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
-  
+  > As an exception to the rule, the developer(s) (YOU) of a cluster-client ([index.html](apps/index.html)) can load remote (trusted) components/scripts, which is demonstrated by [aframe-verse-component-scripts](https://github.com/coderofsalvation/aframe-verse-component-scripts).
+ 
   Worstcase, a destination can be loaded in a new tab (`newtab:true` which exits immersive navigation ), which then basically becomes the new cluster.
 
 <details>
