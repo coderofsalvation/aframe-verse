@@ -11,7 +11,7 @@ A single-player-verse component for [AFRAME](https://aframe.io):
 * ❤️ HTML-first: even runs from wordpress, no ninja javascript-skills needed
 * ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
-> Similar to a **WEB**ring, you can easily create **DOM**rings and a **VERSE**rings with this component.
+> Similar to a **WEB**ring, you can easily create **DOM**rings and a **VERSE**rings with this component, which you can **Zuckerburger** yourself (or with friends).
 
 <details>
   <summary><h1>Usage</h2></summary>
