@@ -130,14 +130,14 @@ A future version of `aframe-verse.json` will do the latter.
 
 > aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a webdirectory)
 
-This could be github-repo, or linuxserver where:
+This could be a github-repo, or linuxserver where:
 * the **maintainer(s)** maintain a pool of trusted aframe apps (& components)
 * the **maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
 * the **maintainer(s)** agree on shared garbage collection 
 
 > Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in [index.html](apps/index.html) when a new app arrives thru merge requests.
 
-But..but..what about privacy & security?<br>
+#### But..but..what about privacy & security?
 This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.<br>
 For more info [read this](https://github.com/coderofsalvation/aframe-verse/issues/1)
 
@@ -146,7 +146,7 @@ For more info [read this](https://github.com/coderofsalvation/aframe-verse/issue
     <summary><h3>Project scope</h3></h2></summary>
     <br>
 
-Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
+Out of the box, this component is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
 A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
 Therefore, the following is out of scope, but can still be used to progressively enhance an `aframe-verse`:
 
