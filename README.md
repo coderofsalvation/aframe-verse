@@ -13,8 +13,9 @@ A HTML-first-single-player-verse:
 
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
 
-## Creating your verse 
-
+<details>
+  <summary><h2>Creating your verse-cluster</h2></summary>
+  <br>
 ```
 <script src="aframe-verse-component"></script>
 
@@ -55,13 +56,15 @@ aframe-verse.json
 
 > click here for an [production-example of a aframe-verse.json](https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json)
 
+</details>
+
 # How it works
 
 ![](.img/flow.jpg)
 
-Simple: a visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+A visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
 
->  When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
+>  When a visitor surfs to a cluster-client (`index.html`), it loads all components, which other linked experiences use. Other trusted components can be loaded by exception.<br>
 
 <details>
   <summary>How does this works in large?</summary>
@@ -163,6 +166,7 @@ AFRAME.registerComponent('navigate', {
     // e.detail.destination = false           // uncomment to cancel navigation
   }, 
   navigate(e){
+    // e.detail.destination = false           // uncomment to cancel navigation 
     console.log("navigating to: "+e.detail.destination.url)
   }, 
   registerJSON(e){
