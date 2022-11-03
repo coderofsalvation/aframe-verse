@@ -60,13 +60,13 @@ aframe-verse.json
 ![](.img/flow.jpg)
 
 The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
-Instead, an user in the **aframe-verse** just teleports to other destinations ("*beam me up scotty!*").<br>
-When the enduser surfs to a starting-destination (`index.html`), it basically loads all components, which other linked experiences use.<br>
+Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
 This is a security-limitation and a performance-feature, because this: 
 
-* makes traveling between experiences very fluid and fast.
+* makes traveling between experiences (within a cluster) very fluid and fast.
 * it creates a decentralized incentive between developer(s) to:
-  * collaborate on a seamless & secure end-user experience
+  * collaborate on a seamless & secure end-user experiences-cluster
   * consistent UX because of:
     * shared components
     * shared global objects: wearables, UI, AR/VR controller-support e.g.
@@ -75,7 +75,7 @@ Exceptions to this rule can be agreed upon by the developer(s), by allowing on-t
 
 `{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
 
-Worstcase, a destination can be loaded in a new tab (`newtab:true`, exits immersive navigation ), which then basically becomes a new starting-destination.
+Worstcase, a destination can be loaded in a new tab (`newtab:true`, exits immersive navigation ), which then basically becomes the new cluster.
 
 ## Join us! publish, selfhost & connect your verse (for free)
 
