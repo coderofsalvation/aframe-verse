@@ -162,6 +162,8 @@ Therefore, the following is out of scope, but can still be used to progressively
   <summary><h1>Customizing (with code)</h1></summary>
   <br>
 
+  > Rule of thumb: load (or extend loading) components in the cluster-client ([index.html](apps/index.html))
+
   <details>
     <summary><h4>Extending navigation interactions</h2></summary>
     <br>
