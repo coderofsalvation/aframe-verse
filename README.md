@@ -14,8 +14,9 @@ A HTML-first-single-player-verse:
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
 
 <details>
-  <summary><h2>Creating your verse-cluster</h2></summary>
+  <summary><h1>Creating your verse-cluster</h2></summary>
   <br>
+
 ```
 <script src="aframe-verse-component"></script>
 
