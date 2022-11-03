@@ -14,7 +14,7 @@ A HTML-first-single-player-verse:
 > Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
 
 <details>
-  <summary><h1>Creating your verse-cluster</h2></summary>
+  <summary><h1>Usage</h2></summary>
   <br>
 
 ```
@@ -59,7 +59,9 @@ aframe-verse.json
 
 </details>
 
-# How it works
+<details>
+  <summary><h1>How it works</h2></summary>
+  <br>
 
 ![](.img/flow.jpg)
 
@@ -91,25 +93,41 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
   
 </details>
 
-## Join us! publish, selfhost & connect your verse (for free)
+</details>
+
+<details>
+  <summary><h1>Publish,  selfhost & connect your verse (for free)</h2></summary>
+  <br>
 
 3 ways of hosting:
 
-**GITHUB / GITLAB (free)**:
+<details>
+  <summary><h3>GITHUB / GITLAB</h2></summary>
+  <br>
+
 * click the fork-button on [github](https://github.com/coderofsalvation/aframe-verse) or [gitlab](https://gitlab.com/coderofsalvation/aframe-verse)
 * rename the repository to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * github: go to settings-tab > enable github pages (use the main-branch)
 * profit! your verse can now be accessed thru 
   * github: `https://yourusername.github.io/aframe-verse-myorganisation/apps`
   * gitlab: `https://yourusername.gitlab.io/aframe-verse-myorganisation/apps`
+</details>
 
+<details>
+  <summary><h3>GLITCH</h2></summary>
+  <br>
 **GLITCH (free)**
 * [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
 * rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
+</details>
  
+<details>
+  <summary><h3>SELFHOSTING (redbean/wordpress/apache e.g.)</h2></summary>
+  <br>
 **SELFHOSTING**
 * [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
+</details>
 
 Developing:
 * put your aframe apps in `apps/*`
@@ -118,6 +136,8 @@ Developing:
 * use absolute href/urls (or use `./index.html` to guide the enduser back to the origin verse)
 
 > Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
+
+</details>
 
 ## A federated HTML-first verse
 
