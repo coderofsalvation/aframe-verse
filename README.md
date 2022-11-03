@@ -7,9 +7,9 @@ A single-player-verse component for [AFRAME](https://aframe.io):
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * ❤️ easily teleport between aframe apps & aframe-verse clusters 
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
-* ❤️ serverless: no servers (NAF/signaling) needed
+* ❤️ standalone & serverless: no servers (NAF/signaling) needed
 * ❤️ HTML-first: even runs from wordpress, no ninja javascript-skills needed
-* ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
+* ❤️ #networkless #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
 > Similar to a **WEB**ring, you can easily create **DOM**rings and a **VERSE**rings with this component, that can be **Zuckerburgered** by yourself (or friends).
 
