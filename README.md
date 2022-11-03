@@ -44,7 +44,7 @@ aframe-verse.json
 {
   "schema":"aframe-verse/0.1",
   "destinations":[ 
-    {"url":"./index.html"},                                      // change to absolute url for produciton 
+    {"url":"./index.html"},                                      
     {"url":"https://somefriend.com/some_aframe_app.html"},       // allow in-app immersive navigation
     {
      "url":"https://somefriend.com/supercustom_webxr_app.html",  // a trusted app but which uses 
