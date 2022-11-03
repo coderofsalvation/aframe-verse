@@ -2,7 +2,7 @@
 
 ![](.img/demo.gif)
 
-A single-player-verse component:
+A single-player-verse component for [AFRAME](https://aframe.io):
 
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * ❤️ easily teleport between aframe apps & aframe-verse clusters 
@@ -18,7 +18,7 @@ A single-player-verse component:
   <br>
 
 ```html
-<script src="aframe-verse-component"></script>
+<script src="aframe-verse-component.js"></script>
 
 <a-scene>
   <a-entity aframe-verse="register: /aframe-verse.json">
