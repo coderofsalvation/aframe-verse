@@ -6,7 +6,7 @@ A single-player-verse component:
 
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
 * ❤️ serverless: no servers (NAF/signaling) needed
-* ❤️ easily teleport between aframe apps & aframe verses 
+* ❤️ easily teleport between aframe apps & aframe-verse clusters 
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ HTML-first: even runs from wordpress, no ninja javascript-skills needed
 * ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
@@ -63,7 +63,7 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
-A visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+A visitor in an **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
 `aframe-verse.json` is just a telephone-book of destinations.
 
 >  When a visitor surfs to a cluster-client ([index.html](apps/index.html)), it loads all components, which other linked experiences use.
@@ -74,11 +74,11 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
 
 > Just check [index.html](apps/index.html) and [app2.html](apps/app2.html), Basically:
 
-* put your aframe apps in `apps/*` (they should have a `aframe-verse`-attribute set somewhere)
+* put your aframe apps in `apps/*` (they should have an `aframe-verse`-attribute set somewhere)
 * add `href`-attributes to clickable items (see example)
 * use `href="./afile.html"` to teleport to relative files 
 * whitelist `href="https://..."`-links by including them in `aframe-verse.json` (see browserconsole for errors)
-* use `href="/"` to guide the enduser back to the original clustero
+* use `href="/"` to guide the visitor back to the original cluster
 
 </details>
 
@@ -97,7 +97,7 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
 }
 ```
 
-And then write a custom `navigation`-compoment (see Customizing-chapter) to load scripts defined above (or script-tags nested under `aframe-verse`-attribute).<br>
+And then write a custom `navigation`-component (see Customizing-chapter) to load `scripts` (or script-tags nested under `aframe-verse`-attribute).<br>
 A future version of `aframe-verse.json` will do the latter.
 </details>
 
@@ -106,18 +106,18 @@ A future version of `aframe-verse.json` will do the latter.
   <br>
 
   The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
-  Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
-  When the enduser surfs to a cluster-client ([index.html](apps/index.html)), it basically loads all components, which other linked experiences use.<br>
+  Instead, a visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+  When the visitor surfs to a cluster-client ([index.html](apps/index.html)), it basically loads all components, which other linked experiences use.<br>
   This is a security-limitation and a performance-feature, because this: 
   
   * makes traveling between experiences (within a cluster) very fluid and fast.
   * it creates a decentralized incentive between developer(s) to:
-    * collaborate on a seamless & secure end-user experiences-cluster
+    * collaborate on a seamless & secure end-visitor cluster-client ([index.html](apps/index.html))
     * consistent UX because of:
       * shared components
       * shared global objects: wearables, UI, AR/VR controller-support e.g.
   
-  Exceptions to this rule can be agreed upon by the developer(s) of a cluster.<br>
+  Exceptions to this rule can be agreed upon by the developer(s) of a cluster-client ([index.html](apps/index.html)).<br>
   By allowing on-the-fly components by certain developers or CDN's:
   
   `{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
