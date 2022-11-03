@@ -17,7 +17,7 @@ A HTML-first-single-player-verse:
   <summary><h1>Usage</h2></summary>
   <br>
 
-```
+```html
 <script src="aframe-verse-component"></script>
 
 <a-scene>
@@ -40,7 +40,7 @@ A HTML-first-single-player-verse:
 ```
 
 aframe-verse.json
-```
+```json
 {
   "schema":"aframe-verse/0.1",
   "destinations":[ 
@@ -65,18 +65,42 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
-A visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+1) A visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+2) `aframe-verse.json` is just a telephone-book of destinations.
 
->  When a visitor surfs to a cluster-client (`index.html`), it loads all components, which other linked experiences use. Other trusted components can be loaded by exception.<br>
+>  When a visitor surfs to a cluster-client (`index.html`), it loads all components, which other linked experiences use.
 
 <details>
   <summary>How to add experiences?</summary>
   <br>
 
-* put your aframe apps in `apps/*`
-* add `href`-attributes to clickable items (like a-box)
-* whitelist the href-attributes by including them in `aframe-verse.json`
-* use absolute href/urls (or use `./index.html` to guide the enduser back to the origin verse)
+> Just check [index.html](apps/index.html) and [app2.html](apps/app2.html), Basically:
+
+* put your aframe apps in `apps/*` (they should have a `aframe-verse`-attribute set somewhere)
+* add `href`-attributes to clickable items (see example)
+* use `href="./afile.html"` to teleport to relative files 
+* whitelist `href="https://..."`-links by including them in `aframe-verse.json` (see browserconsole for errors)
+* use `href="/"` to guide the enduser back to the original clustero
+
+</details>
+
+<details>
+  <summary>How to add components?</summary>
+  <br>
+
+  Typically these are included in the cluster-client [index.html](apps/index.html).<br>
+  As an exception to the rule,  you can load remote (trusted) components, by modifying [aframe-verse.json](aframe-version):
+
+```json
+{
+  destinations:[
+    {url:"https://trusteddomain.com/experience.html", scripts:[...]}
+  ]
+}
+```
+
+And then write a custom `navigation`-compoment (see Customizing-chapter) to load scripts defined above (or script-tags nested under `aframe-verse`-attribute).<br>
+A future version of `aframe-verse.json` will do the latter.
 </details>
 
 <details>
@@ -116,7 +140,7 @@ This could be github-repo, or linuxserver where:
 > Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
 
 But..but..what about privacy & security?<br>
-This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.
+This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.<br>
 For more info [read this](https://github.com/coderofsalvation/aframe-verse/issues/1)
 
 </details>
@@ -185,7 +209,7 @@ Therefore, the following is out of scope, but can still be used to progressively
 In the example, only touch/mouse-events are supported.<br>
 By defining `hrefEvents`, you can trigger navigation for other events too:
 
-```
+```html
 <... aframe-verse="register: /yourverse.json; hrefEvents: click, mouseenter, collide, foobar">
    <a-box href="./show.html"/>  
 </...>
@@ -249,7 +273,7 @@ Optionally, you can secure the import-behaviour further using the `registerJSON`
 You can have multiple persisting verses at the same time.
 Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
 
-```
+```html
 <a-entity aframe-verse="register: aframe-verse.json">
   ...
 </a-entity>
