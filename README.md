@@ -55,8 +55,6 @@ aframe-verse.json
 }
 ```
 
-> click here for an [production-example of a aframe-verse.json](https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json)
-
 </details>
 
 <details>
@@ -65,10 +63,10 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
-1) A visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
-2) `aframe-verse.json` is just a telephone-book of destinations.
+A visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+`aframe-verse.json` is just a telephone-book of destinations.
 
->  When a visitor surfs to a cluster-client (`index.html`), it loads all components, which other linked experiences use.
+>  When a visitor surfs to a cluster-client ([index.html](apps/index.html)), it loads all components, which other linked experiences use.
 
 <details>
   <summary>How to add experiences?</summary>
@@ -109,7 +107,7 @@ A future version of `aframe-verse.json` will do the latter.
 
   The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
   Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
-  When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
+  When the enduser surfs to a cluster-client ([index.html](apps/index.html)), it basically loads all components, which other linked experiences use.<br>
   This is a security-limitation and a performance-feature, because this: 
   
   * makes traveling between experiences (within a cluster) very fluid and fast.
@@ -137,7 +135,7 @@ This could be github-repo, or linuxserver where:
 * the **maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
 * the **maintainer(s)** agree on shared garbage collection 
 
-> Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
+> Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in [index.html](apps/index.html) when a new app arrives thru merge requests.
 
 But..but..what about privacy & security?<br>
 This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.<br>
