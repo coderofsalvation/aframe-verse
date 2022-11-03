@@ -60,8 +60,8 @@ aframe-verse.json
 ![](.img/flow.jpg)
 
 The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
-Instead, in the aframe-verse the user just teleports to other destinations.
-When the enduser surfs to a starting-destination (`index.html), it basically loads all components, which other linked experiences use.
+Instead, an user in the **aframe-verse** just teleports to other destinations ("beam me up scotty!").<br>
+When the enduser surfs to a starting-destination (`index.html), it basically loads all components, which other linked experiences use.<br>
 It is a limitation and a feature, because this: 
 
 * makes traveling between experiences very fluid and fast.
