@@ -61,9 +61,11 @@ aframe-verse.json
 
 Simple: a visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
 
-<details>
-  <summary>Just hosting some html-files? Why is it so easy?</summary>
+>  When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
 
+<details>
+  <summary>How does this works in large?</summary>
+  <br>
   The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
   Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
   When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
@@ -81,7 +83,7 @@ Simple: a visitor in the **aframe-verse** just teleports to other destinations a
   
   `{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
   
-  Worstcase, a destination can be loaded in a new tab (`newtab:true`, exits immersive navigation ), which then basically becomes the new cluster.
+  Worstcase, a destination can be loaded in a new tab (`newtab:true` which exits immersive navigation ), which then basically becomes the new cluster.
   
 </details>
 
