@@ -69,39 +69,6 @@ A visitor in an **aframe-verse** just teleports to other destinations and cluste
 >  When a visitor surfs to a cluster-client ([index.html](apps/index.html)), it loads all components, which other linked experiences use.
 
 <details>
-  <summary>How to add experiences?</summary>
-  <br>
-
-> Just check [index.html](apps/index.html) and [app2.html](apps/app2.html), Basically:
-
-* put your aframe apps in `apps/*` (they should have an `aframe-verse`-attribute set somewhere)
-* add `href`-attributes to clickable items (see example)
-* use `href="./afile.html"` to teleport to relative files 
-* whitelist `href="https://..."`-links by including them in `aframe-verse.json` (see browserconsole for errors)
-* use `href="/"` to guide the visitor back to the original cluster
-
-</details>
-
-<details>
-  <summary>How to add components?</summary>
-  <br>
-
-  Typically these are included in the cluster-client [index.html](apps/index.html).<br>
-  As an exception to the rule,  you can load remote (trusted) components, by modifying [aframe-verse.json](aframe-version):
-
-```json
-{
-  destinations:[
-    {url:"https://trusteddomain.com/experience.html", scripts:[...]}
-  ]
-}
-```
-
-And then write a custom `navigation`-component (see Customizing-chapter) to load `scripts` (or script-tags nested under `aframe-verse`-attribute).<br>
-A future version of `aframe-verse.json` will do the latter.
-</details>
-
-<details>
   <summary>How does this works in large?</summary>
   <br>
 
@@ -157,6 +124,40 @@ Therefore, the following is out of scope, but can still be used to progressively
 </details>
 
 </details>
+
+<details>
+  <summary><h1>How to add experiences?</h1></summary>
+  <br>
+
+> Just check [index.html](apps/index.html) and [app2.html](apps/app2.html), Basically:
+
+* put your aframe apps in `apps/*` (they should have an `aframe-verse`-attribute set somewhere)
+* add `href`-attributes to clickable items (see example)
+* use `href="./afile.html"` to teleport to relative files 
+* whitelist `href="https://..."`-links by including them in `aframe-verse.json` (see browserconsole for errors)
+* use `href="/"` to guide the visitor back to the original cluster
+
+</details>
+
+<details>
+  <summary><h1>How to add components?</h1></summary>
+  <br>
+
+  Typically these are included in the cluster-client [index.html](apps/index.html).<br>
+  As an exception to the rule,  you can load remote (trusted) components, by modifying [aframe-verse.json](aframe-version):
+
+```json
+{
+  destinations:[
+    {url:"https://trusteddomain.com/experience.html", scripts:[...]}
+  ]
+}
+```
+
+And then write a custom `navigation`-component (see Customizing-chapter) to load `scripts` (or script-tags nested under `aframe-verse`-attribute).<br>
+A future version of `aframe-verse.json` will do the latter.
+</details>
+
 
 <details>
   <summary><h1>Customizing (with code)</h1></summary>
