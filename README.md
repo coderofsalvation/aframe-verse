@@ -116,7 +116,7 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
 <details>
   <summary><h3>GLITCH</h2></summary>
   <br>
-**GLITCH (free)**
+
 * [REMIX this glitch](https://glitch.com/edit/#!/remix/aframe-verse)
 * rename the project to `aframe-verse-*` (aframe-verse-myorganisation e.g.) for easy discoverability
 * your verse can now be accessed thru `https://aframe-verse-myorganisation.glitch.me/apps/` 
@@ -125,7 +125,7 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
 <details>
   <summary><h3>SELFHOSTING (redbean/wordpress/apache e.g.)</h2></summary>
   <br>
-**SELFHOSTING**
+
 * [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
 </details>
 
@@ -139,7 +139,9 @@ Developing:
 
 </details>
 
-## A federated HTML-first verse
+<details>
+  <summary><h3>A federated HTML-first-verse</h2></summary>
+  <br>
 
 > aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a webdirectory)
 
@@ -153,83 +155,107 @@ But..but..what about privacy & security?<br>
 This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.
 For more info [read this](https://github.com/coderofsalvation/aframe-verse/issues/1)
 
-## Extending navigation interactions
+  <details>
+    <summary>More on the project scope</h2></summary>
+    <br>
 
-In the example, only touch/mouse-events are supported.<br>
-By defining `hrefEvents`, you can trigger navigation for other events too:
+  Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
+  A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
+  Therefore, the following is out of scope, but can still be used to progressively enhance an `aframe-verse`:
 
-```
-<... aframe-verse="register: /yourverse.json; hrefEvents: click, mouseenter, collide, foobar">
-   <a-box href="./show.html"/>  
-</...>
-```
+  * multiplayer: see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
+  * hardened security/privacy: introduce activitypub-layer, p2p webrtc like yjs
+  </details>
 
-> Profit! Now navigation is triggered to `show.html` whenever it is clicked, mousehovered or colliding with another object
+</details>
 
-calling `$('[aframe-verse] [href]').emit('foobar', {})` would trigger navigation too
+<details>
+  <summary><h3>Customizations (with code)</h2></summary>
+  <br>
 
-## Customizing navigation
+  <details>
+    <summary><h4>Extending navigation interactions</h2></summary>
+    <br>
 
-You can hook into navigation-events by creating a custom component:
+    In the example, only touch/mouse-events are supported.<br>
+    By defining `hrefEvents`, you can trigger navigation for other events too:
 
-```
-// use like: <a-entity aframe-verse="..." navigate></a-entity>
+    ```
+    <... aframe-verse="register: /yourverse.json; hrefEvents: click, mouseenter, collide, foobar">
+       <a-box href="./show.html"/>  
+    </...>
+    ```
 
-AFRAME.registerComponent('navigate', {
-  init: function(){
-    console.log("initing navigation")
-    this.el.addEventListener('beforeNavigate', this.beforeNavigate )
-    this.el.addEventListener('navigate', this.navigate )
-    this.el.addEventListener('registerJSON', this.registerJSON )
-  }, 
-  beforeNavigate(e){
-    console.log("about to navigate to: "+e.detail.destination.url)
-    // e.detail.destination = false           // uncomment to cancel navigation
-  }, 
-  navigate(e){
-    // e.detail.destination = false           // uncomment to cancel navigation 
-    console.log("navigating to: "+e.detail.destination.url)
-  }, 
-  registerJSON(e){
-    let json = e.detail.json
-    // example: skip non-immersive navigation links
-    json.destinations = json.destinations.filter( (d) => d.newtab ? null : d )
-    // example: launch external verses in a new tab (so its components get loaded too)
-    json.destinations.map( (d) => d.url.match(/index\.html$/) ? d.newtab = true : null )
-  }
-})
-```
+    > Profit! Now navigation is triggered to `show.html` whenever it is clicked, mousehovered or colliding with another object
 
-## Connecting and Securing verses
+    calling `$('[aframe-verse] [href]').emit('foobar', {})` would trigger navigation too
+  </details>
 
-![](.img/yodawg.jpg)
+  <details>
+    <summary><h4>Customizing navigation further</h2></summary>
+    <br>
 
-For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json`, that's all!<br>
-Optionally, you can secure the import-behaviour further using the `registerJSON`-event as shown above
+    You can hook into navigation-events by creating a custom component:
 
-## Fadetime & multi-verses
+    ```
+    // use like: <a-entity aframe-verse="..." navigate></a-entity>
 
-You can have multiple persisting verses at the same time.
-Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
+    AFRAME.registerComponent('navigate', {
+      init: function(){
+        console.log("initing navigation")
+        this.el.addEventListener('beforeNavigate', this.beforeNavigate )
+        this.el.addEventListener('navigate', this.navigate )
+        this.el.addEventListener('registerJSON', this.registerJSON )
+      }, 
+      beforeNavigate(e){
+        console.log("about to navigate to: "+e.detail.destination.url)
+        // e.detail.destination = false           // uncomment to cancel navigation
+      }, 
+      navigate(e){
+        // e.detail.destination = false           // uncomment to cancel navigation 
+        console.log("navigating to: "+e.detail.destination.url)
+      }, 
+      registerJSON(e){
+        let json = e.detail.json
+        // example: skip non-immersive navigation links
+        json.destinations = json.destinations.filter( (d) => d.newtab ? null : d )
+        // example: launch external verses in a new tab (so its components get loaded too)
+        json.destinations.map( (d) => d.url.match(/index\.html$/) ? d.newtab = true : null )
+      }
+    })
+    ```
+  </details>
 
-```
-<a-entity aframe-verse="register: aframe-verse.json">
-  ...
-</a-entity>
+  <details>
+    <summary><h4>Connecting, Nesting & Securing verse-clusters</h2></summary>
+    <br>
 
-<a-entity aframe-verse="register: menu.json; fade: 0">   <!-- NOTE: superfast fade in ms (0=off) -->
-  ...
-</a-entity>
+  ![](.img/yodawg.jpg)
 
-```
+  For navigation, you can add external verses to the `.verses`-array in `aframe-verse.json`, that's all!<br>
+  Optionally, you can secure the import-behaviour further using the `registerJSON`-event as shown above in 'Customizing navigation further'.
 
-> NOTE: for heavy scenes you can set `fade: 4000` (4seconds fade) e.g.
+  </details>
 
-## Scope
+  <details>
+    <summary><h4>Fadetime & nesting verses</h2></summary>
+    <br>
 
-Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
-A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
-Therefore, the following is out of scope, but can still be used to progressively enhance an `aframe-verse`:
+  You can have multiple persisting verses at the same time.
+  Usecases for this are: a menu system, mini-games, inventory or a teleporting-maze e.g.:
 
-* multiplayer: see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
-* hardened security/privacy: introduce activitypub-layer, p2p webrtc like yjs
+  ```
+  <a-entity aframe-verse="register: aframe-verse.json">
+    ...
+  </a-entity>
+
+  <a-entity aframe-verse="register: menu.json; fade: 0">   <!-- NOTE: superfast fade in ms (0=off) -->
+    ...
+  </a-entity>
+
+  ```
+
+  > NOTE: for heavy scenes you can set `fade: 4000` (4seconds fade) e.g.
+  </details>
+</details>
+
