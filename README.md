@@ -70,8 +70,19 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
 >  When a visitor surfs to a cluster-client (`index.html`), it loads all components, which other linked experiences use. Other trusted components can be loaded by exception.<br>
 
 <details>
+  <summary>How to add experiences?</summary>
+  <br>
+
+* put your aframe apps in `apps/*`
+* add `href`-attributes to clickable items (like a-box)
+* whitelist the href-attributes by including them in `aframe-verse.json`
+* use absolute href/urls (or use `./index.html` to guide the enduser back to the origin verse)
+</details>
+
+<details>
   <summary>How does this works in large?</summary>
   <br>
+
   The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
   Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
   When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
@@ -90,6 +101,36 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
   `{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
   
   Worstcase, a destination can be loaded in a new tab (`newtab:true` which exits immersive navigation ), which then basically becomes the new cluster.
+
+<details>
+  <summary><h3>Federated HTML-first verse-clusters</h2></summary>
+  <br>
+
+> aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a webdirectory)
+
+This could be github-repo, or linuxserver where:
+* the **maintainer(s)** maintain a pool of trusted aframe apps (& components)
+* the **maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
+* the **maintainer(s)** agree on shared garbage collection 
+
+> Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
+
+But..but..what about privacy & security?<br>
+This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.
+For more info [read this](https://github.com/coderofsalvation/aframe-verse/issues/1)
+
+</details>
+  <details>
+    <summary><h3>Project scope</h3></h2></summary>
+    <br>
+
+Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
+A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
+Therefore, the following is out of scope, but can still be used to progressively enhance an `aframe-verse`:
+
+* multiplayer: see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
+* hardened security/privacy: introduce activitypub-layer, p2p webrtc like yjs
+  </details>
   
 </details>
 
@@ -129,48 +170,12 @@ A visitor in the **aframe-verse** just teleports to other destinations and clust
 * [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
 </details>
 
-Developing:
-* put your aframe apps in `apps/*`
-* add `href`-attributes to clickable items (like a-box)
-* whitelist the href-attributes by including them in `aframe-verse.json`
-* use absolute href/urls (or use `./index.html` to guide the enduser back to the origin verse)
-
 > Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
 
 </details>
 
 <details>
-  <summary><h3>A federated HTML-first-verse</h2></summary>
-  <br>
-
-> aframe-verse describes a verse using the lowest common denominator between Aframe authors (=a webdirectory)
-
-* the **maintainer(s)** maintain a pool of trusted aframe apps (& components)
-* the **maintainer(s)** allow DOM-sharing (a DOM-ring) between eachothers aframe-apps
-* the **maintainer(s)** agree on shared garbage collection 
-
-> Ideally, the maintainers need to approve new (website-specific) scripts/components, and include them in `index.html` when a new app arrives thru merge requests.
-
-But..but..what about privacy & security?<br>
-This is all up to the maintainers of a verse, just think of it as running a shared website & linksharing.
-For more info [read this](https://github.com/coderofsalvation/aframe-verse/issues/1)
-
-  <details>
-    <summary>More on the project scope</h2></summary>
-    <br>
-
-Out of the box, this monoverse-repo is good enough for seamlessly navigating between **simple read-only** aframe experiences (galleries, portfolios, vr movies, viewing scenes e.g.).<br>
-A monoverse is the opposite of a 'metaverse'-concept (in which multiplayer-communication is fundamental).
-Therefore, the following is out of scope, but can still be used to progressively enhance an `aframe-verse`:
-
-* multiplayer: see the (way more complex) [NAF approach](https://github.com/networked-aframe) which requires you to run your own server.
-* hardened security/privacy: introduce activitypub-layer, p2p webrtc like yjs
-  </details>
-
-</details>
-
-<details>
-  <summary><h3>Customizations (with code)</h2></summary>
+  <summary><h2>Customizing (with code)</h2></summary>
   <br>
 
   <details>
