@@ -59,23 +59,31 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
-The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
-Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
-When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
-This is a security-limitation and a performance-feature, because this: 
+Simple: a visitor in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
 
-* makes traveling between experiences (within a cluster) very fluid and fast.
-* it creates a decentralized incentive between developer(s) to:
-  * collaborate on a seamless & secure end-user experiences-cluster
-  * consistent UX because of:
-    * shared components
-    * shared global objects: wearables, UI, AR/VR controller-support e.g.
+<details>
+  <summary>Just hosting some html-files? Why is it so easy?</summary>
 
-Exceptions to this rule can be agreed upon by the developer(s), by allowing on-the-fly components by certain developers or CDN's:
-
-`{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
-
-Worstcase, a destination can be loaded in a new tab (`newtab:true`, exits immersive navigation ), which then basically becomes the new cluster.
+  The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
+  Instead, an user in the **aframe-verse** just teleports to other destinations and clusters ("*beam me up scotty!*").<br>
+  When the enduser surfs to a cluster-client (`index.html`), it basically loads all components, which other linked experiences use.<br>
+  This is a security-limitation and a performance-feature, because this: 
+  
+  * makes traveling between experiences (within a cluster) very fluid and fast.
+  * it creates a decentralized incentive between developer(s) to:
+    * collaborate on a seamless & secure end-user experiences-cluster
+    * consistent UX because of:
+      * shared components
+      * shared global objects: wearables, UI, AR/VR controller-support e.g.
+  
+  Exceptions to this rule can be agreed upon by the developer(s) of a cluster.<br>
+  By allowing on-the-fly components by certain developers or CDN's:
+  
+  `{"url":"https://runvnc.net/trustedpexperience", "scripts":true }`
+  
+  Worstcase, a destination can be loaded in a new tab (`newtab:true`, exits immersive navigation ), which then basically becomes the new cluster.
+  
+</details>
 
 ## Join us! publish, selfhost & connect your verse (for free)
 
