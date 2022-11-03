@@ -283,7 +283,7 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
 * [download zip](https://github.com/coderofsalvation/aframe-verse/archive/refs/heads/main.zip) and unpack it in your apache/worpress dir e.g.
 </details>
 
-> Later: please connect your verse to this repo, by mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
+> Later: please connect your verse to this repo, by submitting a PR or mentioning your json-URL in an issue. That way, future verses (forks) will automatically include your verse too.
 
 </details>
 
