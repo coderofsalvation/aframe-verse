@@ -11,6 +11,9 @@ AFRAME.registerComponent('button', {
         }, 
         color:{
             default: '#3a50c5'
+        }, 
+        hicolor:{
+            default: '#555555'
         }
     },
     init: function() {
@@ -40,6 +43,8 @@ AFRAME.registerComponent('button', {
         this.el.addEventListener('stateremoved', this.stateChanged);
         this.el.addEventListener('pressedstarted', this.onPressedStarted);
         this.el.addEventListener('pressedended', this.onPressedEnded);
+        this.el.addEventListener('mouseenter', (e) => this.onMouseEnter(e) );
+        this.el.addEventListener('mouseleave', (e) => this.onMouseLeave(e) );
     },
     bindMethods: function() {
         this.stateChanged = this.stateChanged.bind(this);
@@ -52,15 +57,21 @@ AFRAME.registerComponent('button', {
         }
     },
     stateChanged: function() {
-        var color = this.el.is('pressed') ? 'green' : this.color;
+        var color = this.el.is('pressed') ? this.data.hicolor : this.color;
         this.el.setAttribute('material', {
             color: color
         });
     },
+    onMouseEnter: function(){
+        this.el.setAttribute('material', { color: this.data.hicolor });
+    }, 
+    onMouseLeave: function(){
+        this.el.setAttribute('material', { color: this.color });
+    }, 
     onPressedStarted: function() {
         var el = this.el;
         el.setAttribute('material', {
-            color: 'green'
+            color: this.data.hicolor
         });
         el.emit('click');
         if (this.data.togabble) {
