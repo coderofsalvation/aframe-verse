@@ -59,6 +59,22 @@ aframe-verse.json
 
 ![](.img/flow.jpg)
 
+The concept above is an answer to the fact that each tile-based 'metaverse' will always turn into some kind of **hypercentralized** client-project.
+Instead, in the aframe-verse the user just teleports to other destinations.
+When the enduser surfs to a starting-destination (`index.html), it basically loads all components, which other linked experiences use.
+It is a limitation and a feature, because this: 
+
+* makes traveling between experiences very fluid and fast.
+* it creates a decentralized incentive between developers to:
+  * collaborate on a seamless & secure end-user experience
+  * consistent UX because of shared global objects: wearables, UI, AR/VR controller-support e.g.
+
+Exceptions to this rule can be agreed upon by the developer(s), by allowing on-the-fly components by certain developers or CDN's:
+
+`{"url":"https://runvnc.net/trustedpexperience", "scripts":['/js/components.js"] }`
+
+Worstcase, a destination can be loaded in a new tab (`newtab:true`, exits immersive navigation ), which then basically becomes a new starting-destination.
+
 ## Join us! publish, selfhost & connect your verse (for free)
 
 3 ways of hosting:
