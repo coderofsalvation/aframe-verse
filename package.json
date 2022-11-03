@@ -1,0 +1,27 @@
+{
+  "name": "aframe-verse",
+  "version": "1.0.0",
+  "description": "deadsimple immersive navigation: a single-player-verse component:",
+  "main": "components/aframe-verse-component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderofsalvation/aframe-verse.git"
+  },
+  "keywords": [
+    "aframe",
+    "VR",
+    "AR",
+    "verse",
+    "immersive",
+    "navigation"
+  ],
+  "author": "coderofsalvation",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/coderofsalvation/aframe-verse/issues"
+  },
+  "homepage": "https://github.com/coderofsalvation/aframe-verse#readme"
+}

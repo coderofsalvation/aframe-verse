@@ -5,9 +5,9 @@
 A single-player-verse component:
 
 * try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
-* ❤️ serverless: no servers (NAF/signaling) needed
 * ❤️ easily teleport between aframe apps & aframe-verse clusters 
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
+* ❤️ serverless: no servers (NAF/signaling) needed
 * ❤️ HTML-first: even runs from wordpress, no ninja javascript-skills needed
 * ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
