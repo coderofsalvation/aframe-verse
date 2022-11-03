@@ -4,7 +4,8 @@
 
 A single-player-verse component for [AFRAME](https://aframe.io):
 
-* try the [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
+### TRY THE [ONLINE DEMO](https://coderofsalvation.github.io/aframe-verse/apps/)
+
 * ❤️ easily teleport between aframe apps & aframe-verse clusters 
 * ❤️ does not exit immersive-mode when navigating to different aframe experiences
 * ❤️ standalone & serverless: no servers (NAF/signaling) needed
