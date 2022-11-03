@@ -11,7 +11,7 @@ A single-player-verse component:
 * ❤️ HTML-first: even runs from wordpress, no ninja javascript-skills needed
 * ❤️ #decentralized #noblockchain #permissionless-first #federatedpullrequests
 
-> Similar to a **WEB**ring, aframe-verse-component basically enables a **DOM**-ring and a **VERSE**-ring
+> Similar to a **WEB**ring, you can easily create **DOM**rings and a **VERSE**rings with this component.
 
 <details>
   <summary><h1>Usage</h2></summary>
