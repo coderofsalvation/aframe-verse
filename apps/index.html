@@ -6,7 +6,7 @@
     <script src="./../components/aframe-verse-component.js"></script>
 
     <!-- extension example: script support -->
-    <script src="https://cdn.jsdelivr.net/gh/coderofsalvation/aframe-verse-component-scripts/aframe-verse-component-scripts.js"/></script>
+    <script src="./../components/aframe-verse-component-scripts.js"></script>
   </head>
   <body>
     <a-scene background="color: #EEE" 
@@ -14,18 +14,14 @@
             raycaster="objects: .hit"
             renderer="colorManagement:true; highRefreshRate:true">
 
-      <a-entity aframe-verse="register: ./../aframe-verse.json; hrefEvents: click, collide; debug: true" scripts>
+      <a-entity aframe-verse="register: ./../aframe-verse.json; debug: true" scripts>
 
         <a-text position="-1 3 -5" value="This is index.html" color="#aaaaaa"></a-text>
-
-        <a-cylinder position="1.5 0.75 -3" radius="0.5" height="1.5" color="#aaa"></a-cylinder>
-
-        <a-box position="1.5 0.75 -1" width="0.5" height="0.5" color="#ccc"></a-box>
 
         <a-entity light="color: #FFF; intensity:2" position="-0.56 2.395 0.037"></a-entity>
 
         <a-entity id="menu" menu position="0 1 -0.5" rotation="-45 0 0" event-manager>
-          <a-entity button="label: another verse; width:0.24" position="0 0.1 0" href="https://coderofsalvation.github.io/aframe-verse-leondustar/apps/index.html"></a-entity>
+          <a-entity button="label: another verse; width:0.24" position="0 0.1 0" href="https://coderofsalvation.gitlab.io/aframe-urwhatuthink/experience.html"></a-entity>
           <a-entity button="label: app2.html; width:0.24" position="0 0.2 0" href="./app2.html"></a-entity>
         </a-entity>
 
