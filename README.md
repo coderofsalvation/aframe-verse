@@ -60,13 +60,13 @@ aframe-verse.json
     <summary><h4>Properties</h4></summary>
     <br>
 
-    | property   | type | info |
-    |------------|------|------|
-    | debug      | bool (false) | shows info in the browserconsole     |
-    | register   | string | location of aframe-verse.json destinations  |
-    | hrefEvents | stringarray (click, collide) | events which trigger href |
-    | fade       | integer (100) | amount (in ms) of fade-in fade-out time       |
-    | fadeColor  | string ('black') | (hex)color(name) for fading       |
+| property   | type | info |
+|------------|------|------|
+| debug      | bool (false) | shows info in the browserconsole     |
+| register   | string | location of aframe-verse.json destinations  |
+| hrefEvents | stringarray (click, collide) | events which trigger href |
+| fade       | integer (100) | amount (in ms) of fade-in fade-out time       |
+| fadeColor  | string ('black') | (hex)color(name) for fading       |
   </details>
   
   <details>
@@ -75,15 +75,15 @@ aframe-verse.json
 
     The following events represent the lifecycle:
     
-    | component    | property     | promise | info                               |
-    |--------------|--------------|---------|------------------------------------|
-    | aframe-verse | registerJSON | no      |fires when loading aframe-verse JSON file(s) |
-    | href         | beforeNavigate | yes     |fires before navigation fadeout   |
-    | href         | navigate       | yes     |fires after navigation fadeout    |
-    | href         | loadHTML       | yes     |fires before inserting new DOM content |
-    | href         | loaded         | yes     |fires after all DOM content is loaded ('domready' e.g.)|
+| component    | property     | promise | info                               |
+|--------------|--------------|---------|------------------------------------|
+| aframe-verse | registerJSON | no      |fires when loading aframe-verse JSON file(s) |
+| href         | beforeNavigate | yes     |fires before navigation fadeout   |
+| href         | navigate       | yes     |fires after navigation fadeout    |
+| href         | loadHTML       | yes     |fires before inserting new DOM content |
+| href         | loaded         | yes     |fires after all DOM content is loaded ('domready' e.g.)|
 
-    > See chapter `Customizing (with code)` > 'Customizing navigation Further' for flowcontrol using promises.
+> See chapter `Customizing (with code)` > 'Customizing navigation Further' for flowcontrol using promises.
   </details>
   
 </details>
