@@ -73,8 +73,6 @@ aframe-verse.json
     <summary><h4>Events</h4></summary>
     <br>
 
-    The following events represent the lifecycle:
-    
 | component    | property     | promise | info                               |
 |--------------|--------------|---------|------------------------------------|
 | aframe-verse | registerJSON | no      |fires when loading aframe-verse JSON file(s) |
