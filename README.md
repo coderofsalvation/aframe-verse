@@ -46,13 +46,13 @@ aframe-verse.json
   "schema":"aframe-verse/0.1",
   "destinations":[ 
     {"url":"./index.html"},                                      
-    {"url":"https://afriend.com/some_aframe_app.html"},      // allow in-app immersive navigation
+    {"url":"https://afriend.com/some_aframe_app.html"},      // allow immersive navigation
     {
-     "url":"https://afriend.com/supercustom_webxr_app.html", // a trusted app but which uses 
-     "newtab": true                                          // a threejs e.g. (opens in new tab)
+     "url":"https://afriend.com/supercustom_webxr_app.html", // trusted non-aframe app e.g.
+     "newtab": true                                          // (opens in new tab)
     }
   ], 
-  "verses":["https://otherfriends.com/aframe-verse.json"]    // import extern trusted destinations
+  "verses":["https://otherfriends.com/aframe-verse.json"]    // import trusted destinations
 }
 ```
 
