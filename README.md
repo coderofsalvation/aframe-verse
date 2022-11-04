@@ -15,7 +15,7 @@ A single-player-verse component for [AFRAME](https://aframe.io):
 > Similar to a **WEB**ring, you can easily create **DOM**rings and **VERSE**rings with this component, that can be **Zuckerburgered** by yourself (or friends).
 
 <details>
-  <summary><h1>Usage</h2></summary>
+  <summary><h2>Usage</h2></summary>
   <br>
 
 ```html
@@ -87,7 +87,7 @@ aframe-verse.json
 </details>
 
 <details>
-  <summary><h1>How it works</h2></summary>
+  <summary><h2>How it works</h2></summary>
   <br>
 
 ![](.img/flow.jpg)
@@ -152,7 +152,7 @@ Therefore, the following is out of scope, but can still be used to progressively
 </details>
 
 <details>
-  <summary><h1>How to add experiences?</h1></summary>
+  <summary><h2>How to add experiences?</h2></summary>
   <br>
 
 > Just check [index.html](apps/index.html) and [app2.html](apps/app2.html), Basically:
@@ -166,7 +166,7 @@ Therefore, the following is out of scope, but can still be used to progressively
 </details>
 
 <details>
-  <summary><h1>How to add components?</h1></summary>
+  <summary><h2>How to add components?</h2></summary>
   <br>
 
   Typically these are included in the cluster-client [index.html](apps/index.html).<br>
@@ -180,7 +180,7 @@ Therefore, the following is out of scope, but can still be used to progressively
 
 
 <details>
-  <summary><h1>Customizing (with code)</h1></summary>
+  <summary><h2>Customizing (with code)</h2></summary>
   <br>
 
   > Rule of thumb: load (or extend loading) components in the cluster-client ([index.html](apps/index.html))
@@ -287,7 +287,7 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
 
 
 <details>
-  <summary><h1>Publish,  selfhost & connect your verse (for free)</h2></summary>
+  <summary><h2>Publish,  selfhost & connect your verse (for free)</h2></summary>
   <br>
 
 3 ways of hosting:
@@ -325,7 +325,7 @@ Usecases for this are: a menu system, mini-games, inventory or a teleporting-maz
 </details>
 
 <details>
-  <summary><h1>Scope / Contributing</h2></summary>
+  <summary><h2>Scope / Contributing</h2></summary>
 
 All feedback,bugfixes are very welcome ❤️<br>
 
