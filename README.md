@@ -189,7 +189,6 @@ Therefore, the following is out of scope, but can still be used to progressively
     <summary><h4>Extending navigation interactions</h2></summary>
     <br>
 
-In the example, only touch/mouse-events are supported.<br>
 By defining `hrefEvents`, you can trigger navigation for other events too:
 
 ```html
