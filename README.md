@@ -64,7 +64,7 @@ aframe-verse.json
 |------------|------|------|
 | debug      | bool (false) | shows info in the browserconsole     |
 | register   | string | location of aframe-verse.json destinations  |
-| hrefEvents | stringarray (click, collide) | events which trigger href |
+| hrefEvents | stringarray (click, collide) | events which trigger teleport to href |
 | fade       | integer (100) | amount (in ms) of fade-in fade-out time       |
 | fadeColor  | string ('black') | (hex)color(name) for fading       |
   </details>
