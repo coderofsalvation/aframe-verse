@@ -62,7 +62,7 @@ aframe-verse.json
 
     | property   | type | info |
     |------------|------|------|
-    | debug      | bool |(false) | shows info in the browserconsole     |
+    | debug      | bool (false) | shows info in the browserconsole     |
     | register   | string | location of aframe-verse.json destinations  |
     | hrefEvents | stringarray (click, collide) | events which trigger href |
     | fade       | integer (100) | amount (in ms) of fade-in fade-out time       |
@@ -86,19 +86,6 @@ aframe-verse.json
     > See chapter `Customizing (with code)` > 'Customizing navigation Further' for flowcontrol using promises.
   </details>
   
-  <details>
-    <summary><h4>Properties</h4></summary>
-    <br>
-
-    | property   | type | info |
-    |------------|------|------|
-    | debug      | bool |(false) | shows info in the browserconsole     |
-    | register   | string | location of aframe-verse.json destinations  |
-    | hrefEvents | stringarray (click, collide) | events which trigger href |
-    | fade       | integer (ms) | amount of fade-in fade-out time       |
-    | fadeColor  | string ('black') | (hex)color(name) for fading       |
-  </details>
-
 </details>
 
 <details>
