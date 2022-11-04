@@ -52,7 +52,7 @@ aframe-verse.json
      "newtab": true                                          // a threejs e.g. (opens in new tab)
     }
   ], 
-  "verses":["https://otherfriends.com/aframe-verse.json"]    // import other trusted destinations
+  "verses":["https://otherfriends.com/aframe-verse.json"]    // import extern trusted destinations
 }
 ```
 
