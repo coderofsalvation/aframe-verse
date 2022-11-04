@@ -57,7 +57,7 @@ aframe-verse.json
 ```
 
   <details>
-    <summary><h4>Properties</h4></summary>
+    <summary><h4>Click here for properties</h4></summary>
     <br>
 
 | property   | type | info |
@@ -70,7 +70,7 @@ aframe-verse.json
   </details>
   
   <details>
-    <summary><h4>Events</h4></summary>
+    <summary><h4>Click here for events</h4></summary>
     <br>
 
 | component    | property     | promise | info                               |
