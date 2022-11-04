@@ -81,7 +81,7 @@ aframe-verse.json
 | href         | loadHTML       | yes     |fires before inserting new DOM content |
 | href         | loaded         | yes     |fires after all DOM content is loaded ('domready' e.g.)|
 
-> See chapter `Customizing (with code)` > 'Customizing navigation Further' for flowcontrol using promises.
+> See chapter `Customizing (with code)` > `Customizing navigation Further` for flowcontrol using promises.
   </details>
   
 </details>
