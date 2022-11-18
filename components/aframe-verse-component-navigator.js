@@ -1,0 +1,1 @@
+../aframe-verse-component-navigator/aframe-verse-component-navigator.js

@@ -7,11 +7,12 @@
 
     <!-- extension example: script support -->
     <script src="https://cdn.jsdelivr.net/gh/coderofsalvation/aframe-verse-component-scripts@7448846/aframe-verse-component-scripts.js"></script>
+    <script src="./../components/aframe-verse-component-navigator.js"></script>
   </head>
   <body>
     <a-scene background="color: #EEE" 
             cursor="rayOrigin:mouse" 
-            raycaster="objects: .hit"
+            raycaster="objects: .hit, [button]"
             renderer="colorManagement:true; highRefreshRate:true">
 
       <a-entity aframe-verse="register: ./../aframe-verse.json; debug: true" scripts>
@@ -20,18 +21,16 @@
 
         <a-entity light="color: #FFF; intensity:2" position="-0.56 2.395 0.037"></a-entity>
 
-        <a-entity id="menu" menu position="0 1 -0.5" rotation="-45 0 0" event-manager>
-          <a-entity button="label: another verse; width:0.24" position="0 0.1 0" href="https://coderofsalvation.github.io/aframe-verse-leondustar/apps/index.html"></a-entity>
-          <a-entity button="label: app2.html; width:0.24" position="0 0.2 0" href="./app2.html"></a-entity>
-        </a-entity>
+        <a-entity button="label: example link; width:0.24" rotation="-45 0 0" position="0 1 -0.5" href="https://coderofsalvation.github.io/aframe-verse-leondustar/apps/index.html"></a-entity>
 
         <a-plane position="0 0 0" rotation="-90 0 0" width="9" height="9" color="#CCC"></a-plane>
 
       </a-entity>
 
       <!-- entities below survive during teleporting -->
-      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [button]"></a-entity>
-      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [button]" line="color: #118A7E"></a-entity>
+      <a-entity id="leftHand"  laser-controls="hand: left"  raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
+      <a-entity navigator position="0 1.092 -0.595" rotation="-45 0 0" wearable="el: #leftHand; rotation: -90 90 0; position: -0.02 -0.03 -0.1"></a-entity>
 
     </a-scene>
   </body>

@@ -2,7 +2,8 @@ if( typeof $ == 'undefined' ) window.$ = (s) => document.querySelector(s)
 
 AFRAME.registerComponent('href', {
   getVerse: function(){
-    return this.el.components["aframe-verse"] || this.el.closest('[aframe-verse]').components["aframe-verse"]
+    return this.el ? this.el.components["aframe-verse"] || this.el.closest('[aframe-verse]').components["aframe-verse"]
+                   : $('[aframe-verse]').components['aframe-verse']
   }, 
   emitPromise: function(e, opts, averse){ // emitting promises instead of data allows more control for listeners
     return new Promise( (resolve, reject) => {
@@ -14,33 +15,33 @@ AFRAME.registerComponent('href', {
       if( !opts.promise.halted ) resolve()
     })
   }, 
-  init: function(){
-    let href   = this.data.http || this.data.https || this.data
-    let handler  = (e) => {
-      let averse = this.getVerse()
-      if( averse.loading ) return
+  teleport: function(e, href){
+    href   = href || this.data.http || this.data.https || this.data
+    let averse = this.getVerse()
+    if( averse.loading ) return
 
-      let dest = {url:"./index.html"}         // default: return to home / origin verse
-      dest = href == '/' ? {url:'/'} : averse.findDestination(href)
-      if( !dest ) throw `console.error: ${href} not in json register`
-      let ctx = {el:averse,  destination:dest }
-      averse.loading = true
+    let dest = {url:"./index.html"}         // default: return to home / origin verse
+    dest = href == '/' ? {url:'/'} : averse.findDestination(href)
+    if( !dest ) throw `console.error: ${href} not in json register`
+    let ctx = {el:averse,  destination:dest }
+    averse.loading = true
 
-      let navigate = () => {
-        this.emitPromise('navigate',ctx)
-            .then(  (e) => this.loadURL(averse, dest) )
-            .catch( console.warn ) 
-      }
-
-      this.emitPromise('beforeNavigate', ctx)
-          .then( () => {
-            if( averse.data.fade != 0 ) $('[fader]').components.fader.in( navigate )
-            else navigate()
-          })
+    let navigate = () => {
+      this.emitPromise('navigate',ctx)
+          .then(  (e) => this.loadURL(averse, dest) )
+          .catch( console.warn ) 
     }
+
+    this.emitPromise('beforeNavigate', ctx)
+        .then( () => {
+          if( averse.data.fade != 0 ) $('[fader]').components.fader.in( navigate )
+          else navigate()
+        })
+  }, 
+  init: function(){
     setTimeout( () => {
       let events = this.getVerse().data.hrefEvents
-      events.map( (e) => this.el.addEventListener(e, handler ) )
+      events.map( (e) => this.el.addEventListener(e, (e) => this.teleport(e) ) )
       this.el.setAttribute("class", (this.el.className?this.el.className+" ":"") + "hit") // make collidable
     }, 200 )
   }, 
@@ -178,3 +179,42 @@ AFRAME.registerComponent('fader', {
     if( cb ) setTimeout( cb, this.data.fadetime*1.2 )
   }
 });
+
+AFRAME.registerComponent('wearable', {
+  schema:{
+    el: {type:"selector"}, 
+    position: {type:"array"}, 
+    rotation: {type:"array"} 
+  }, 
+  init: function(){
+    console.log("wearable")
+    console.dir(this.data)
+    $('a-scene').addEventListener('enter-vr', (e) => this.wear(e) )
+    $('a-scene').addEventListener('exit-vr',  (e) => this.unwear(e) )
+  }, 
+  wear: function(){
+    if( !this.old ){
+      this.old = {}
+      this.old.parent = this.el.parentElement
+      this.old.position = this.el.getAttribute("position")
+      this.old.rotation = this.el.getAttribute("rotation")
+    }
+    let el  = this.data.el
+    let pos = this.data.position
+    let rot = this.data.rotation
+
+    this.el.setAttribute("visible", false)
+    el.object3D.add( this.el.object3D )
+
+//    el.appendChild(this.el)
+//    el.setAttribute("position", `${pos[0]} ${pos[1]} ${pos[2]}`)
+//    el.setAttribute("rotation", `${rot[0]} ${rot[1]} ${rot[2]}`)
+  }, 
+  unwear: function(){
+//    this.old.parent.appendChild(this.el)
+//    let opos = this.old.position
+//    let orot = this.old.rotation
+//    this.el.setAttribute("position", `${opos.x} ${opos.y} ${opos.z}`)
+//    this.el.setAttribute("rotation", `${orot.x} ${orot.x} ${orot.z}`)
+  }
+})

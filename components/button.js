@@ -9,8 +9,14 @@ AFRAME.registerComponent('button', {
         toggable: {
             default: false
         }, 
+        textSize: {
+            default: 0.66
+        }, 
         color:{
-            default: '#3a50c5'
+            default: '#338'
+        }, 
+        textColor:{
+            default: '#fff'
         }, 
         hicolor:{
             default: '#555555'
@@ -24,19 +30,21 @@ AFRAME.registerComponent('button', {
             primitive: 'box',
             width: this.data.width,
             height: 0.05,
-            depth: 0.01
+            depth: 0.005
         });
         el.setAttribute('material', {
-            color: this.color
+            color: this.color, 
+            transparent:true,
+            opacity:0.3
         });
         el.setAttribute('pressable', '');
-        labelEl.setAttribute('position', '0 0 0.02');
+        labelEl.setAttribute('position', '0 0 0.01');
         labelEl.setAttribute('text', {
             value: this.data.label,
-            color: 'white',
+            color: this.data.textColor, 
             align: 'center'
         });
-        labelEl.setAttribute('scale', '0.75 0.75 0.75');
+        labelEl.setAttribute('scale', `${this.data.textSize} ${this.data.textSize} ${this.data.textSize}`);
         this.el.appendChild(labelEl);
         this.bindMethods();
         this.el.addEventListener('stateadded', this.stateChanged);
