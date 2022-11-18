@@ -101,6 +101,7 @@ AFRAME.registerComponent('aframe-verse', {
       this.el.emit('registerJSON', {json} )
       this.destinations = this.destinations.concat( json.destinations)
       json.verses.map( (verse) => this.registerJSON(verse) )
+      console.dir(this.destinations)
     })
     .catch( (e) => console.error(e) )
     return this
@@ -108,13 +109,9 @@ AFRAME.registerComponent('aframe-verse', {
 
   findDestination: function(url){
     let url_rel = $('base').getAttribute("href") + url
+    console.dir(this.el.closest('[aframe-verse]'))
     let destinations = this.el.closest('[aframe-verse]').components['aframe-verse'].destinations
-    return destinations.find( (d) => {
-      let result  = false
-      if( String(d.url).replace(/(http|https):/, '') == url     ) result = d
-      if( String(d.url).replace(/(http|https):/, '') == url_rel ) result = d
-      return result
-    })
+    return destinations.find( (d) => d.url == url ? d : null )
   }, 
 
   setBaseHref: function(url, absolute){
