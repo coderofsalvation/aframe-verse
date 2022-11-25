@@ -4,14 +4,12 @@
     {"url":"./index.html"},
     {"url":"./app2.html"}, 
     {"url":"https://coderofsalvation.gitlab.io/aframe-urwhatuthink/experience.html", "title":"Leon Du Star - URWHATUTHINK", "scripts":true},
-    {"url":"https://coderofsalvation.github.io/aframe-verse-leondustar/apps/index.html", "scripts":true}, 
-    {"url":"https://coderofsalvation.github.io/aframe-verse-leondustar/apps/index.html", "scripts":true}, 
     {"url":"https://fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
      "author":"Fabien Benetou", 
      "owntab": true
     }
   ], 
   "verses":[
-    "https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json"
+    {"url":"https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json", "scripts":true}
   ]
 }

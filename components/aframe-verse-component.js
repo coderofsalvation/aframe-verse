@@ -84,7 +84,7 @@ AFRAME.registerComponent('aframe-verse', {
     fadeColor:  {type:"string"}
   },
 
-  registerJSON: function(url){
+  registerJSON: function(url, attrs){
     if( !url ) return console.error("aframe-verse-component:register() no register found")
     fetch(url)
     .then( (res) => res.json() )
@@ -95,13 +95,14 @@ AFRAME.registerComponent('aframe-verse', {
           rooturl.pop()
           d.url = rooturl.join("/") + "/apps/" + d.url.substr(2)
         }
+        for ( let attr in attrs  ) if( attr != "url" ) d[attr] = attrs[attr]
         if( this.data.debug ) console.log("indexing "+d.url)
         return d
       })
-      this.el.emit('registerJSON', {json} )
       this.destinations = this.destinations.concat( json.destinations)
-      json.verses.map( (verse) => this.registerJSON(verse) )
-      console.dir(this.destinations)
+      json.verses.map( (verse) => this.registerJSON(verse.url, verse) )
+      this.el.emit('registerJSON', {json} )
+      if( this.data.debug ) console.table(this.destinations)
     })
     .catch( (e) => console.error(e) )
     return this
@@ -180,8 +181,8 @@ AFRAME.registerComponent('fader', {
 AFRAME.registerComponent('wearable', {
   schema:{
     el: {type:"selector"}, 
-    position: {type:"array"}, 
-    rotation: {type:"array"} 
+    position: {type:"vec3"}, 
+    rotation: {type:"vec3"} 
   }, 
   init: function(){
     console.log("wearable")
@@ -190,28 +191,18 @@ AFRAME.registerComponent('wearable', {
     $('a-scene').addEventListener('exit-vr',  (e) => this.unwear(e) )
   }, 
   wear: function(){
-    if( !this.old ){
-      this.old = {}
-      this.old.parent = this.el.parentElement
-      this.old.position = this.el.getAttribute("position")
-      this.old.rotation = this.el.getAttribute("rotation")
+    if( !this.wearable ){
+      let d = this.data
+      this.wearable = new THREE.Group()
+      this.el.object3D.children.map( (c) => this.wearable.add(c) )
+      this.wearable.position.set( d.position.x,  d.position.y,  d.position.z)
+      this.wearable.rotation.set( d.rotation.x,  d.rotation.y,  d.rotation.z)
     }
-    let el  = this.data.el
-    let pos = this.data.position
-    let rot = this.data.rotation
-
-    this.el.setAttribute("visible", false)
-    el.object3D.add( this.el.object3D )
-
-//    el.appendChild(this.el)
-//    el.setAttribute("position", `${pos[0]} ${pos[1]} ${pos[2]}`)
-//    el.setAttribute("rotation", `${rot[0]} ${rot[1]} ${rot[2]}`)
+    this.data.el.object3D.add(this.wearable)
   }, 
   unwear: function(){
-//    this.old.parent.appendChild(this.el)
-//    let opos = this.old.position
-//    let orot = this.old.rotation
-//    this.el.setAttribute("position", `${opos.x} ${opos.y} ${opos.z}`)
-//    this.el.setAttribute("rotation", `${orot.x} ${orot.x} ${orot.z}`)
+    this.data.el.remove(this.wearable)
+    this.wearable.children.map( (c) => this.el.object3D.add(c) )
+    delete this.wearable
   }
 })

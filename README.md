@@ -26,33 +26,40 @@ A single-player-verse component for [AFRAME](https://aframe.io):
 
     <!-- everything nested under `aframe-verse`, will be replaced upon navigation  -->
 
-    <a-box href="/"></a-box>            <!-- home = the cluster-client (index.html) -->
+    <a-box href="/"></a-box>          <!-- home = the cluster-client (index.html) -->
     <a-box href="./app2.html"></a-box>  
     <a-box href="https://somefriend.com/some_aframe_app.html"></a-box>
     <a-box href="https://somefriend.com/supercustom_webxr_app.html"></a-box>
 
   <a-entity>
 
-  <!-- put 'global' entities here (UI, cursor or wearables e.g.)   -->
-  <!-- to persist across navigation                                -->
-  <!-- ps. multiple aframe-verse components are supported!         -->
+  <!-- entities below survive during teleporting                                    -->
+  <!-- use 'wearable' to indicate sticking objects to controller in immersive mode  -->
+  <a-entity id="leftHand"  laser-controls="hand: left"  raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
+  <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
+  <a-entity navigator position="0 1.092 -0.595" rotation="-45 0 0" wearable="el: #leftHand; rotation: -45, 0, 0; position: -0.02, -0.03, -0.1"></a-entity>
+  
+  <!-- ps. multiple (nested) aframe-verse components are supported!                -->
 
 </a-scene>
 ```
 
-aframe-verse.json
+Recursive description of a verse (`aframe-verse.json`):
 ```json
 {
   "schema":"aframe-verse/0.1",
   "destinations":[ 
-    {"url":"./index.html"},                                      
-    {"url":"https://afriend.com/some_aframe_app.html"},      // allow immersive navigation
-    {
-     "url":"https://afriend.com/supercustom_webxr_app.html", // trusted non-aframe app e.g.
-     "newtab": true                                          // (opens in new tab)
+    {"url":"./index.html"},               // immersive navigation
+    {"url":"./app2.html" },               // 
+    {"url":"https://coderofsalvation.gitlab.io/aframe-urwhatuthink/experience.html", "title":"Leon Du Star - URWHATUTHINK", "scripts":true},
+    {"url":"https://fabien.benetou.fr/pub/home/future_of_text_demo/engine/",
+     "author":"Fabien Benetou", 
+     "newtab": true                       // opens in new tab (does not contain aframe-verse component)
     }
   ], 
-  "verses":["https://otherfriends.com/aframe-verse.json"]    // import trusted destinations
+  "verses":[  // import trusted destinations
+    {"url":"https://coderofsalvation.github.io/aframe-verse-leondustar/aframe-verse.json", "scripts":true}
+  ]
 }
 ```
 

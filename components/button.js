@@ -13,7 +13,7 @@ AFRAME.registerComponent('button', {
             default: 0.66
         }, 
         color:{
-            default: '#338'
+            default: '#111'
         }, 
         textColor:{
             default: '#fff'
