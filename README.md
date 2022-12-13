@@ -35,9 +35,12 @@ A single-player-verse component for [AFRAME](https://aframe.io):
 
   <!-- entities below survive during teleporting                                    -->
   <!-- use 'wearable' to indicate sticking objects to controller in immersive mode  -->
-  <a-entity id="leftHand"  laser-controls="hand: left"  raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
-  <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
-  <a-entity navigator position="0 1.092 -0.595" rotation="-45 0 0" wearable="el: #leftHand; rotation: -45, 0, 0; position: -0.02, -0.03, -0.1"></a-entity>
+  <a-entity id="player">
+    <a-entity camera position="0 1.6 0" wasd-controls look-controls mouse-cursor></a-entity>
+    <a-entity id="leftHand"  laser-controls="hand: left"  raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
+    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [button]" raycaster="lineColor: #888; lineOpacity:0.5"></a-entity>
+    <a-entity navigator position="0 1.092 -0.595" rotation="-45 0 0" wearable="el: #leftHand; rotation: -45, 0, 0; position: -0.02, -0.03, -0.1"></a-entity>
+  </a-entity>
   
   <!-- ps. multiple (nested) aframe-verse components are supported!                -->
 

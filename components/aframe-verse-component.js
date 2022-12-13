@@ -61,7 +61,7 @@ AFRAME.registerComponent('href', {
       if( !gohome ) averse.setBaseHref( dest.url )
       return this.emitPromise('loadHTML',{destination:dest, gohome})
     })
-    .then( () =>  averse.el.innerHTML = dest.dom.querySelector('[aframe-verse]').innerHTML )
+    .then( () => { averse.el.innerHTML              = dest.dom.querySelector('[aframe-verse]').innerHTML })
     .catch( (e) => console.error(e) )
     .finally( () => {
       this.emitPromise('loaded',{destination:dest,gohome},averse)
