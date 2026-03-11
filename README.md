@@ -1,7 +1,9 @@
-> **DEPRECATED**: this solution is better solved in [JanusXR](https://github.com/jbaicoianu/janusweb) using [the XR Fragments standard instead](https://coderofsalvation.github.io/xrfragment/#XR%20Fragments)
 
-In all these years AFRAME has shown little interest in immersive hyperlinking.<br>
-Please redirect your energy to [JanusXR](https://github.com/jbaicoianu/janusweb) which has that as a core feature, and is part of [XRHF](https://xrhf.isvery.ninja)
+## **DEPRECATED**: 
+
+This solution is better solved in [JanusXR](https://github.com/jbaicoianu/janusweb) using [the XR Fragments standard instead](https://coderofsalvation.github.io/xrfragment/#XR%20Fragments)
+
+> In all these years AFRAME has shown little interest in immersive hyperlinking. Please redirect your energy to [JanusXR](https://github.com/jbaicoianu/janusweb) which has that as a core feature, and is part of [XRHF](https://xrhf.isvery.ninja)
 
 ## AFRAME-verse, deadsimple immersive navigation
 
